@@ -1,108 +1,324 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Student Rations
 
-Welcome Rebecca Rayner,
+![Image name](file path)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+[View the live project here](depolyed link)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## Table of contents
+1. [Introduction](#Introduction)
+2. [UX](#UX)
+    1. [Ideal User Demographic](#Ideal-User-Demographic)
+    2. [User Stories](#User-Stories)
+    3. [Development Planes](#Development-Planes)
+    4. [Design](#Design)
+3. [Features](#Features)
+    1. [Design Features](#Design-Features) 
+    2. [Existing Features](#Existing-Features)
+    3. [Features to Implement in the future](#Features-to-Implement-in-the-future)
+4. [Issues and Bugs](#Issues-and-Bugs)
+5. [Technologies Used](#Technologies-Used)
+     1. [Main Languages Used](#Main-Languages-Used)
+     2. [Additional Languages Used](#Additional-Languages-Used)
+     3. [Frameworks, Libraries & Programs Used](#Frameworks,-Libraries-&-Programs-Used)
+6. [Testing](#Testing)
+     1. [Testing.md](TESTING.md)
+7. [Deployment](#Deployment)
+     1. [Deploying on Heroku](#Deploying-on-Heroku)
+     2. [Forking the Repository](#Forking-the-Repository)
+     3. [Creating a Clone](#Creating-a-Clone)
+8. [Credits](#Credits)
+     1. [Content](#Content)
+     2. [Media](#Media)
+     3. [Code](#Code)
+9. [Acknowledgements](#Acknowledgements)
+***
 
-## Gitpod Reminders
+## Introduction
+This website was designed to display simple recipes for the student population. The focus of the site is to allow users to upload recipes and images for other users to search and use. 
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+Users will also be able to comment on recipes and upload images of their attempts at the recipe.
 
-`python3 -m http.server`
+This is the fourth of five  Portfolio Projects that the developer must complete during their Full Stack Software Development (with eCommerce) Program at The Code Institute.
 
-A blue button should appear to click: _Make Public_,
+The main requirements were to build a Full-Stack site based on business logic used to control a centrally-owned dataset. This also requires the developer to set up an authentication mechanism and provide role-based access to the site's data or other activities based on the dataset.
 
-Another blue button should appear to click: _Open Browser_.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+[Back to top ⇧](#Student-Rations)
 
-A blue button should appear to click: _Make Public_,
+## UX 
 
-Another blue button should appear to click: _Open Browser_.
+### Ideal User Demographic
+#### The ideal user of this website is:
+- Students
+- Parents
+- Budgeting Individuals
+- Cooking Enthusiasts
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### User Stories
+#### Users:
+1. As a **user**, I can **view a paginated list of recipes** so that **I can more easily select a recipe to view**.
 
-To log into the Heroku toolbelt CLI:
+2. As a **user**, I can **view a list of recipes** so that **I can select one to make**.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+3. As a **user**, I can **open a recipe** so that **I can see the required 
+ingredients and steps to make the meal**.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+4. As a **user**, I can **view the number of likes on a recipe** so that **I can decide if this recipe is worth trying**.
 
-------
+5. As a **user**, I can **read comments other users have left on a recipe** so that **I can see tips and reviews of the recipe**.
 
-## Release History
+6. As a **user**, I can **register an account** so that **I can submit recipes or comment on and like others' recipes**.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+7. As a **user**, I can **leave comments on recipes** so that **I can give tips for the recipe or review the recipe**.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+8. As a **user**, I can **like or unlike a recipe or comment** so that **I can interact with the content**.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+9. As a **user**, I can **upload images to the comments section** so that **I can show my attempts to replicate the recipe**.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+10. As a **user**, I can **add recipes to a favourites page** so that **I can easily find the recipes again for future use**.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+#### Site Admin:
+1. As a **Site Admin**, I can **create, read, update and delete recipes** so that **I can manage my site content**.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+2. As a **Site Admin**, I can **create drafts** so that **I can finish writing my site content later**.
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+### Development Planes
+To create a comprehensive and appealing website, the developer researched other recipe based websites to discover what features and functionality would be required. This information created the above user stories and is developed further below.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+#### Strategy
+Broken into three categories, the website will attempt to focus on the following target audiences:
+- **Roles:**
+     - User
+     - Admin
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+- **Demographic:**
+     - Young adults
+     - College/University students
+     - Cooking Enthusiasts
+     - People looking for budget meals
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+- **Psychographics:**
+     - Personality & Attitudes:
+        - Creative
+	    - Outgoing
+	    - Young
+	    - Thrifty
+     - Values:
+        - Budget-minded
+	    - Love of good food
+     - Lifestyles:
+        - Students
+	    - Low-income families
+	    - Interested in homemade food
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+The website needs to enable the **user** to:
+- search for recipes.
+- comment on and like recipes.
+- upload images of their own experience using the recipe.
+- register and log in to enable them to upload their recipes.
+- add recipes to a favourites page.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+The website needs to enable the **admin** to:
+- approve recipe uploads.
+- create drafts so they can be completed later.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+With the user stories in mind, the developer created the below strategy table to determine the trade-off of importance and viability with the following results:
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+![Strategy Table](static/img/README/strategy-table.png 'Strategy Table')
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+#### Scope
+A scope was define to identify what needed to be done to align features with the strategy previously defined. This was broken into two categories:
+- **Content Requirements**
+     - The user will be looking for:
+        - a comprehensive list of recipes.
+	    - a comprehensive list of ingredients and steps to follow.
+	    - a list of comments and images of others' attempts to replicate the meal on each recipe page.
+	    - a page to find all their favourite recipes.
 
-------
+- **Functionality Requirements**
+     - The user will be able to:
+        - Easily navigate the site to find the information they want.
+	    - Be able to select recipes they wish to try.
+	    - Comment on and like recipes.
+	    - Upload images in the comments section to show their results of trying the recipe.
 
-## FAQ about the uptime script
+#### Structure
+The information architecture was organized in a hierarchical tree structure to ensure that users could navigate through the site with ease and efficiency, with the following results
+![Home Page Wireframe](static/img/README/site-map.png 'Site Map')
 
-**Why have you added this script?**
+#### Skeleton 
+Wireframe mockups were created using [Balsamiq](https://balsamiq.com/ 'Balsamiq Website'), providing a positive user experience with the following results:
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+Home Page:
+![Home Page Wireframe](static/img/README/home-page-wireframe.png 'Home Page - Wireframe')
 
-**How will this affect me?**
+About Page:
+![About Page Wireframe](static/img/README/about-page-wireframe.png 'About Page - Wireframe')
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+Search Page:
+![Search Page Wireframe](static/img/README/search-page-wireframe.png 'Search Page - Wireframe')
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+Recipe Page:
+![Recipe Page Wireframe](static/img/README/recipe-page-wireframe.png 'Recipe Page - Wireframe')
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+Favourites Page:
+![Favourites Page Wireframe](static/img/README/favourites-page-wireframe.png 'Favourites Page - Wireframe')
 
-**So….?**
+### Design
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+#### Colour Scheme
+The developer chose to use a clean black and white style page, with flashes of green throughout to hint towards healthy greens. This colour scheme was chosen as it is quite modern and it allows the colours from the recipes to be presented clearly and appear more attractive.
+The black and white colouring hints at a blackboard, which symbolises the students this site is directed towards.
 
-**Can I opt out?**
+#### Typography
+The font chosen for the logo was Courier New Bold as it is clear and concise, without any frills. This font was chosen as a representation of the site, showing clear concise recipes without all the added articles discussing each ingredient.
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+For the headings, the font Shadows Into Light from Google Fonts was chosen to simulate chalk on a blackboard. For the paragraph text the font Open Sans from Google Fonts was chosen as it is both clear and very popular.
 
+#### Imagery
+To match the colour scheme chosen, an image of some food and utensils on a dark background was chosen. This image whos a few basic ingredients and gives a less threatening appearance to students who may be nervous about trying new recipes. On each recipe page, an image of the finished meal is shown with the recipe to allow the user to visualise the end product.
+
+[Back to top ⇧](#Student-Rations)
+
+## Features
+
+### Design Features
+Nav Feature Desciption:
+- Details of feature
+
+
+<dl>
+  <dt><a href="#" target="_blank" alt="Page">Page</a></dt>
+  <dd>description of page:
+     <ul>
+          <li><strong>feature</strong> - description.
+          </li>
+          <li><strong>feature</strong> - description.
+          </li>
+     </ul>
+  </dd>
+
+  <dt><a href="#" target="_blank" alt="Page">Page</a></dt>
+  <dd>description of page:
+     <ul>
+          <li><strong>feature</strong> - description.
+          </li>
+          <li><strong>feature</strong> - description.
+          </li>
+     </ul>
+  </dd>
+</dl>
+ 
+### Existing Features
+- **Feature** - feature description.
+- **Feature** - feature description.
+- **Feature** - feature description.
+
+### Features to Implement in the future
+- **Feature Name**
+     - **Feature** - description.
+     - **Reason for not featuring in this release** - reason.
+ 
+[Back to top ⇧](#Student-Rations)
+
+## Issues and Bugs 
+Sample text about bugs
+
+**Bug** - bug description.
+	- ***Solution***: description
+
+**Bug** - bug description.
+	- ***Solution***: description
+
+[Back to top ⇧](#Student-Rations)
+
+## Technologies Used
+### Main Languages Used
+- [Technology](Wiki Link "description of link")
+- [Technology](Wiki Link "description of link")
+
+### Additional Languages Used
+- [Technology](Wiki Link "description of link")
+     - Used to .
+
+### Frameworks, Libraries & Programs Used
+- [Technology](Wiki Link "description of link")
+     - Used to .
+
+[Back to top ⇧](#Student-Rations)
+
+## Testing
+
+Testing information can be found in a separate testing [file](TESTING.md "Link to testing file")
+
+## Deployment
+
+This project was developed using .
+
+### Deploying on Heroku
+To deploy this page to Heroku from its GitHub repository, the following steps were taken:
+
+1. 
+
+### Forking the Repository
+By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps...
+
+1. Log into [GitHub](https://github.com/login "Link to GitHub login page") or [create an account](https://github.com/join "Link to GitHub create account page").
+2. Locate the [GitHub Repository](https://github.com/rebeccatraceyt/KryanLive "Link to GitHub Repo").
+3. At the top of the repository, on the right side of the page, select "Fork"
+4. You should now have a copy of the original repository in your GitHub account.
+
+### Creating a Clone
+How to run this project locally:
+1. Install the [GitPod Browser](https://www.gitpod.io/docs/browser-extension/ "Link to Gitpod Browser extension download") Extension for Chrome.
+2. After installation, restart the browser.
+3. Log into [GitHub](https://github.com/login "Link to GitHub login page") or [create an account](https://github.com/join "Link to GitHub create account page").
+2. Locate the [GitHub Repository](https://github.com/rebeccatraceyt/KryanLive "Link to GitHub Repo").
+5. Click the green "GitPod" button in the top right corner of the repository.
+This will trigger a new gitPod workspace to be created from the code in github where you can work locally.
+
+How to run this project within a local IDE, such as VSCode:
+
+1. Log into [GitHub](https://github.com/login "Link to GitHub login page") or [create an account](https://github.com/join "Link to GitHub create account page").
+2. Locate the [GitHub Repository](repo url "Link to GitHub Repo").
+3. Under the repository name, click "Clone or download".
+4. In the Clone with HTTPs section, copy the clone URL for the repository.
+5. In your local IDE open the terminal.
+6. Change the current working directory to the location where you want the cloned directory to be made.
+7. Type 'git clone', and then paste the URL you copied in Step 3.
 ```
-pkill uptime.sh
-rm .vscode/uptime.sh
+git clone https://github.com/USERNAME/REPOSITORY
 ```
+8. Press Enter. Your local clone will be created.
 
-**Anything more?**
+Further reading and troubleshooting on cloning a repository from GitHub [here](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository "Link to GitHub troubleshooting")
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+[Back to top ⇧](#Student-Rations)
 
----
+## Credits 
 
-Happy coding!
+### Content
+- sample text.
+
+### Media
+- images sourced from .
+- Text sourced from .
+
+### Code 
+Did the developer use outside references when building code?
+- [Stack Overflow](https://stackoverflow.com/ "Link to Stack Overflow page")
+- [W3Schools](https://www.w3schools.com/ "Link to W3Schools page")
+- [Bootstrap](https://getbootstrap.com/ "Link to BootStrap page")
+- etc.
+
+
+[Back to top ⇧](#Student-Rations)
+
+## Acknowledgements
+
+- I would like to thank my friends and family for their valued opinions and critic during the process of design and development.
+- I would also like to thank my mentor, Name, for his/her invaluable help and guidance throughout the process.
+
+[Back to top ⇧](#Student-Rations)
+
+***
