@@ -2,7 +2,7 @@
 Forms
 """
 from django import forms
-from .models import Recipe
+from .models import Recipe, Ingredient
 
 
 class RecipeForm(forms.ModelForm):
@@ -27,3 +27,20 @@ class RecipeForm(forms.ModelForm):
                 "The number of servings must be greater than zero"
                 )
         return value
+
+
+class IngredientForm(forms.ModelForm):
+    """
+    Ingredients Input Form
+    """
+    class Meta:
+        """
+        Meta class
+        """
+        model = Ingredient
+        exclude = ('recipe',)
+
+
+IngredientFormSet = forms.inlineformset_factory(
+    Recipe, Ingredient, form=IngredientForm
+    )
