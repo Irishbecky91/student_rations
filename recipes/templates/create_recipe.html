@@ -5,11 +5,14 @@
     <div class="row">
         <div class="col">
         <h1>Add A Recipe</h1>
-        <form action="." method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit">Submit</button>
-        </form>
+        
+        {% load crispy_forms_tags %}
+
+            <form action="." method="post">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit">Submit</button>
+            </form>
         </div>
     </div>
 </div>
