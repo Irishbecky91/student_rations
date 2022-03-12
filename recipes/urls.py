@@ -19,7 +19,6 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('<slug:slug>/', views.RecipeDetail.as_view(),
-        name='create_recipes'),
+    path('<slug:slug>/', views.RecipeDetail.as_view(), name='create_recipe'),
     path('like/<slug:slug>', views.RecipeLike, name='recipe_like'),
 ]

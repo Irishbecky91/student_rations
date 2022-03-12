@@ -5,16 +5,175 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    <title>Recipe App</title>
+    <!-- CSS -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/9d283dbd3f.js" crossorigin="anonymous"></script>
+    {% block title %}
+    {% endblock %}
 </head>
 
 <body>
-    {% block content %}
 
-    {% endblock%}
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg align-items-center navbar-dark bg-dark">
+        <div class="container-fluid ">
+            <a class="navbar-brand" href="{% url 'home' %}">
+                {% load static %}
+                <img src="{% static 'media/Logo.png' %}" alt="My image" width="100" height="100"
+                    class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav justify-content-end me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-warning" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-warning" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-warning" href="#">Recipes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-warning" href="#">Favourites</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Page Content -->
+    {% block content %}
+    {% endblock %}
+
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-5 pb-4">
+
+        <div class="container text-center text-md-left">
+
+            <div class="row text-center text-md-left">
+
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Student Rations</h5>
+                    <p>Providing convenient and easy-to-make recipes for students, beginners and cooking enthusiasts.
+                        You'll find a wide range of recipes to try, you can even share your own recipe ideas!</p>
+                </div>
+
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Useful Sites</h5>
+                    <p>
+                        <a href="https://www.homestoreandmore.ie/kitchen-cookware" class="text-white"
+                            style="text-decoration: none;"> Cooking Utensils</a>
+                    </p>
+                    <p>
+                        <a href="https://www.thestayclub.com/blog/10-best-budgeting-apps-for-students/"
+                            class="text-white" style="text-decoration: none;"> Top 10 Budget Apps</a>
+                    </p>
+                    <p>
+                        <a href="https://www.savvyspender.ie/post/the-best-student-discounts-in-ireland"
+                            class="text-white" style="text-decoration: none;"> Best Student Discounts</a>
+                    </p>
+                    <p>
+                        <a href="https://www.lidl.ie/super-savers" class="text-white" style="text-decoration: none;">
+                            Lidl Supersavers</a>
+                    </p>
+
+                </div>
+
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Our links</h5>
+                    <p>
+                        <a href="#" class="text-white" style="text-decoration: none;">Signin or Signup</a>
+                    </p>
+                    <p>
+                        <a href="#" class="text-white" style="text-decoration: none;">Add Recipes</a>
+                    </p>
+                    <p>
+                        <a href="#" class="text-white" style="text-decoration: none;">Search</a>
+                    </p>
+                    <p>
+                        <a href="#" class="text-white" style="text-decoration: none;">Favourites</a>
+                    </p>
+                </div>
+
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Contact</h5>
+                    <p>
+                        <i class="fas fa-home mr-3"></i>121 The Mall, Tralee, Co. Kerry, V92 AB34
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope mr-3"></i>studentrations@gmail.com
+                    </p>
+                    <p>
+                        <i class="fas fa-phone mr-3"></i>+353 66 710 0000
+                    </p>
+                    <p>
+                        <i class="fas fa-print	 mr-3"></i>+353 88 123 567
+                    </p>
+                </div>
+
+            </div>
+
+            <hr class="mb-4">
+
+            <div class="row align-items-center">
+
+                <div class="col-md-7 col-lg-8">
+                    <p> Copyright ©2022 All rights reserved by:
+                        <a href="#" style="text-decoration: none;">
+                            <strong class="text-warning">Student Rations</strong>
+                        </a></p>
+
+                </div>
+
+                <div class="col-md-5 col-lg-4">
+                    <div class="text-center text-md-right">
+
+                        <ul class="list-unstyled list-inline">
+                            <li class="list-inline-item">
+                                <a href="https://www.facebook.com" class="btn-floating btn-sm text-white"
+                                    style="font-size: 23px;"><i class="fab fa-facebook"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.twitter.com" class="btn-floating btn-sm text-white"
+                                    style="font-size: 23px;"><i class="fab fa-twitter"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.instagram.com" class="btn-floating btn-sm text-white"
+                                    style="font-size: 23px;"><i class="fab fa-instagram"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.linkedin.com" class="btn-floating btn-sm text-white"
+                                    style="font-size: 23px;"><i class="fab fa-linkedin-in"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.youtube.com" class="btn-floating btn-sm text-white"
+                                    style="font-size: 23px;"><i class="fab fa-youtube"></i></a>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
 </body>
+<!-- Bootstrap 5 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+</script>
 
 </html>

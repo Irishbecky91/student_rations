@@ -50,7 +50,8 @@ class RecipeDetail(View):
                 "commented": False,
                 "liked": liked,
                 "comment_form": CommentForm()
-            })
+            }
+        )
 
     def post(self, request, slug, *args, **kwargs):
         """
