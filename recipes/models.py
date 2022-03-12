@@ -8,27 +8,55 @@ from cloudinary.models import CloudinaryField
 
 
 # Create your models here.
+STATUS = ((0, "Draft"), (1, "Published"))
+
+
 class Recipe(models.Model):
     """
     Recipe model
     """
-    title = models.CharField(max_length=150)
-    description = models.TextField(blank=True)
-    slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name='new_recipe'
+        related_name='new_recipe',
+        blank=True,
+        null=True
     )
-    updated_on = models.DateTimeField(auto_now=True)
+    status = models.IntegerField(choices=STATUS, default=0)
+    title = models.CharField(max_length=150)
+    slug = models.SlugField(max_length=200, unique=True, blank=True, null=True)
+    description = models.TextField(blank=True)
     directions = models.TextField()
+    servings = models.IntegerField()
     prep_time = models.DurationField()
     cook_time = models.DurationField()
-    servings = models.IntegerField()
     featured_image = CloudinaryField('image', default='placeholder')
+    likes = models.ManyToManyField(
+        User,
+        related_name='recipe_likes',
+        blank=True
+    )
+    created_on = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    updated_on = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        """
+        Ordering our recipes in created order,
+        the lack of '-' means in ascending order.
+        """
+        ordering = ['-created_on']
 
     def __str__(self):
-        return self.title
+        """
+        Returns a string showing the title.
+        """
+        return str(self.title)
+
+    # def amount_of_likes(self):
+    #     """
+    #     Retun total amount of likes on a recipe
+    #     """
+    #     return self.likes.count()
 
 
 class Ingredient(models.Model):
@@ -43,3 +71,38 @@ class Ingredient(models.Model):
         Recipe, on_delete=models.CASCADE,
         related_name="ingredients"
         )
+
+    def __str__(self):
+        """
+        Returns a string showing the name.
+        """
+        return str(self.name)
+
+
+class Comment(models.Model):
+    """
+    Comment class
+    """
+    recipe = models.ForeignKey(
+        Recipe,
+        on_delete=models.CASCADE,
+        related_name='comments'
+        )
+    name = models.CharField(max_length=75)
+    email = models.EmailField()
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        """
+        Ordering our posts in created order,
+        the lack of '-' means in ascending order.
+        """
+        ordering = ['-created_on']
+
+    def __str__(self):
+        """
+        Returns a string showing the authors name
+        and the contact of the comment.
+        """
+        return f"Comment {self.body} by {self.name}"

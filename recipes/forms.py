@@ -2,7 +2,7 @@
 Forms
 """
 from django import forms
-from .models import Recipe, Ingredient
+from .models import Recipe, Ingredient, Comment
 
 
 class RecipeForm(forms.ModelForm):
@@ -44,3 +44,15 @@ class IngredientForm(forms.ModelForm):
 IngredientFormSet = forms.inlineformset_factory(
     Recipe, Ingredient, form=IngredientForm
     )
+
+
+class CommentForm(forms.ModelForm):
+    """
+    Comment Input Form
+    """
+    class Meta:
+        """
+        Meta class
+        """
+        model = Comment
+        fields = ('body',)
