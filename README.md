@@ -124,7 +124,7 @@ The website needs to enable the **admin** to:
 
 With the user stories in mind, the developer created the below strategy table to determine the trade-off of importance and viability with the following results:
 
-![Strategy Table](static/img/README/strategy-table.png 'Strategy Table')
+![Strategy Table](static/media/README/strategy-table.png 'Strategy Table')
 
 #### Scope
 A scope was define to identify what needed to be done to align features with the strategy previously defined. This was broken into two categories:
@@ -144,25 +144,25 @@ A scope was define to identify what needed to be done to align features with the
 
 #### Structure
 The information architecture was organized in a hierarchical tree structure to ensure that users could navigate through the site with ease and efficiency, with the following results
-![Home Page Wireframe](static/img/README/site-map.png 'Site Map')
+![Home Page Wireframe](static/media/README/site-map.png 'Site Map')
 
 #### Skeleton 
 Wireframe mockups were created using [Balsamiq](https://balsamiq.com/ 'Balsamiq Website'), providing a positive user experience with the following results:
 
 Home Page:
-![Home Page Wireframe](static/img/README/home-page-wireframe.png 'Home Page - Wireframe')
+![Home Page Wireframe](static/media/README/home-page-wireframe.png 'Home Page - Wireframe')
 
 About Page:
-![About Page Wireframe](static/img/README/about-page-wireframe.png 'About Page - Wireframe')
+![About Page Wireframe](static/media/README/about-page-wireframe.png 'About Page - Wireframe')
 
 Search Page:
-![Search Page Wireframe](static/img/README/search-page-wireframe.png 'Search Page - Wireframe')
+![Search Page Wireframe](static/media/README/search-page-wireframe.png 'Search Page - Wireframe')
 
 Recipe Page:
-![Recipe Page Wireframe](static/img/README/recipe-page-wireframe.png 'Recipe Page - Wireframe')
+![Recipe Page Wireframe](static/media/README/recipe-page-wireframe.png 'Recipe Page - Wireframe')
 
 Favourites Page:
-![Favourites Page Wireframe](static/img/README/favourites-page-wireframe.png 'Favourites Page - Wireframe')
+![Favourites Page Wireframe](static/media/README/favourites-page-wireframe.png 'Favourites Page - Wireframe')
 
 ### Design
 

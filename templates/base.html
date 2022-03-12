@@ -22,18 +22,20 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg align-items-center navbar-dark bg-dark">
         <div class="container-fluid ">
-            <a class="navbar-brand" href="{% url 'home' %}">
-                {% load static %}
-                <img src="{% static 'media/Logo.png' %}" alt="My image" width="100" height="100"
-                    class="d-inline-block align-text-top">
-            </a>
+            <div class="col">
+                <a class="navbar-brand" href="{% url 'home' %}">
+                    {% load static %}
+                    <img src="{% static 'media/site_imgs/Logo.png' %}" alt="My image" width="100" height="100"
+                        class="d-inline-block align-text-top">
+                </a>
+            </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <ul class="navbar-nav justify-content-end me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav justify-content-center">
                     <li class="nav-item">
-                        <a class="nav-link text-warning" href="#">Home</a>
+                        <a class="nav-link text-warning" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-warning" href="#">About</a>
@@ -44,11 +46,26 @@
                     <li class="nav-item">
                         <a class="nav-link text-warning" href="#">Favourites</a>
                     </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link text-warning" href="#">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link text-warning" href="#">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-warning" href="#">Login</a>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
     </nav>
 
+    <!-- Header Image -->
+    {% block header %}    
+    {% endblock %}
 
     <!-- Page Content -->
     {% block content %}
@@ -92,7 +109,7 @@
                 <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
                     <h5 class="text-uppercase mb-4 font-weight-bold text-warning">Our links</h5>
                     <p>
-                        <a href="#" class="text-white" style="text-decoration: none;">Signin or Signup</a>
+                        <a href="#" class="text-white" style="text-decoration: none;">Login or Register</a>
                     </p>
                     <p>
                         <a href="#" class="text-white" style="text-decoration: none;">Add Recipes</a>
