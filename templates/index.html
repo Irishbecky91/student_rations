@@ -31,79 +31,71 @@ aria-current="page" id="active-green"
 <!-- Main Content -->
 {% block content %}
 
-<!-- User welcome message -->
-{% if user.is_authenticated %}
-<h1 class="text-center text-light mt-3">
-    Welcome to Student Rations, <span class="green-text">{{ user.username }}</span>!
-</h1>
+    <!-- User welcome message -->
+    {% if user.is_authenticated %}
+    <h1 class="text-center text-light mt-3">
+        Welcome to Student Rations, <span class="green-text">{{ user.username }}</span>!
+    </h1>
 
-<hr class="col-md-6 mx-auto text-light">
+    <hr class="col-md-6 mx-auto text-light">
 
-<h3 class="text-center padding green-text mb-5 mt-5">What's cooking good looking?</h3>
+    <h3 class="text-center padding green-text mb-5 mt-5">What's cooking good looking?</h3>
 
-{% else %}
+    {% else %}
 
-<h1 class="text-center padding green-text mb-5 mt-5">What's cooking good looking?</h1>
+    <h1 class="text-center padding green-text mb-5 mt-5">What's cooking good looking?</h1>
 
-{% endif %}
+    {% endif %}
 
-<div class="container justify-content-center text-center text-md-left mb-3">
-    <div class="row text-center text-md-left g-3">
-        <div class="col-12 col-md-6 col-lg-4 col-xl-4 mx-auto mt-3">
-            <div class="card"">
-                <img src="{% static 'media/site_imgs/scrambled-eggs.jpg' %}" class="card-img-top" alt="Scrambled eggs on toast">
-                <div class="card-body">
-                    <h5 class="card-title">Scrambled Eggs on Toast</h5>
-                    <p class="card-text">A quick and easy breakfast idea. Add some bacon and you have the perfect
-                        hangover cure!</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Servings: </li>
-                    <li class="list-group-item">Prep Time: </li>
-                    <li class="list-group-item">Cook Time: </li>
-                </ul>
-                <div class="card-body">
-                    <a href="#" class="btn" id="green-btn">Go to Recipe</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 col-xl-4 mx-auto mt-3">
-            <div class="card">
-                <img src="{% static 'media/site_imgs/mac-and-cheese.jpg' %}" class="card-img-top" alt="Bowl of mac and cheese topped with bacon">
-                <div class="card-body">
-                    <h5 class="card-title">Mac and Cheese</h5>
-                    <p class="card-text">The tastiest of comfort foods. Crispy Onions are a great addition. What are
-                        your favourite toppings?
-                    </p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Servings: </li>
-                    <li class="list-group-item">Prep Time: </li>
-                    <li class="list-group-item">Cook Time: </li>
-                </ul>
-                <div class="card-body">
-                    <a href="#" class="btn" id="green-btn">Go to Recipe</a>
+    <div class="container justify-content-center text-center text-md-left mb-3">
+        <div class="row text-center text-md-left g-3">
+
+            {% for recipe in recipe_list %}
+            <div class="col-12 col-md-6 col-lg-4 col-xl-4 mx-auto mt-3">
+                <div class="card">
+                    {% if "placeholder" in recipe.featured_image.url %}
+                    {% load static %}
+                    <img class="card-img-top recipe-image" src="{% static 'media/site_images/Logo.png' %}"
+                        alt="Student Rations Logo">
+                    {% else %}
+                    <img class="card-img-top recipe-image" src="{{ recipe.featured_image.url }}" alt="{{ recipe.title }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ recipe.title }}</h5>
+                        <p class="card-text">{{ recipe.description }}</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Servings: {{ recipe.servings }}</li>
+                        <li class="list-group-item">Prep Time: {{ recipe.prep_time }}</li>
+                        <li class="list-group-item">Cook Time: {{ recipe.cook_time }}</li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="{% url 'recipe_detail' recipe.slug  %}" class="btn" id="green-btn">Go to Recipe</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 col-xl-4 mx-auto mt-3">
-            <div class="card">
-                <img src="{% static 'media/site_imgs/caesar-salad.jpg' %}" class="card-img-top" alt="Chicken caesar salad">
-                <div class="card-body">
-                    <h5 class="card-title">Caesar Salad</h5>
-                    <p class="card-text">A simple salad that can be as easy or elaborate as you want it to be. Why not
-                        make it vegan!</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Servings: </li>
-                    <li class="list-group-item">Prep Time: </li>
-                    <li class="list-group-item">Cook Time: </li>
-                </ul>
-                <div class="card-body">
-                    <a href="#" class="btn" id="green-btn">Go to Recipe</a>
-                </div>
+
+            {% if forloop.counter|divisibleby:3 %}
             </div>
+            <div class="row">
+            {% endif %}
+            {% endfor %}
         </div>
+        {% if is_paginated %}
+        <nav aria-label="Page Navigation">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                <li>
+                    <a href="?page={{ page_obj.previous_page_number }}" class="page_link">&laquo; PREV</a>
+                </li>
+                {% endif %}
+                {% if page_obj.has_next %}
+                <li>
+                    <a href="?page={{ page_obj.next_page_number }}" class="page_link">NEXT &raquo;</a>
+                </li>
+                {% endif %}
+            </ul>
+        </nav>
+        {% endif %}
     </div>
-</div>
 {% endblock %}
