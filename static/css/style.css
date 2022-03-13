@@ -1,9 +1,33 @@
 body {
-    background-color:#101518 ;
+    background-color:#101518;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
+main {
+    flex-grow: 1;
+}
+
+/* Header Image */
 .header-image {
     width: 100%;
     max-height: 400px;
     object-fit: cover;
+}
+
+/* Text Styling */
+.green-text, #active-green {
+    color: #97BE11;
+}
+
+#active-green {
+    font-weight: bold;
+}
+
+/* Button Styling */
+#green-btn {
+    background-color: #97BE11;
+    color: black;
+    font-weight: 600;
 }

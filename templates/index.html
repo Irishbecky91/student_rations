@@ -1,11 +1,25 @@
 {% extends 'base.html' %}
 
 
+<!-- Page Title -->
 {% block title %}
 <title>Student Rations - Home</title>
 {% endblock %}
 
 
+<!-- Navbar Active Link -->
+{% block active_home %}
+active
+{% endblock %}
+
+
+<!-- aria-current Attribute for active nav link -->
+{% block aria_home %}
+aria-current="page" id="active-green"
+{% endblock %}
+
+
+<!-- Header Image -->
 {% block header %}
 <header>
     {% load static %}
@@ -14,5 +28,82 @@
 {% endblock %}
 
 
+<!-- Main Content -->
 {% block content %}
+
+<!-- User welcome message -->
+{% if user.is_authenticated %}
+<h1 class="text-center text-light mt-3">
+    Welcome to Student Rations, <span class="green-text">{{ user.username }}</span>!
+</h1>
+
+<hr class="col-md-6 mx-auto text-light">
+
+<h3 class="text-center padding green-text mb-5 mt-5">What's cooking good looking?</h3>
+
+{% else %}
+
+<h1 class="text-center padding green-text mb-5 mt-5">What's cooking good looking?</h1>
+
+{% endif %}
+
+<div class="container justify-content-center text-center text-md-left mb-3">
+    <div class="row text-center text-md-left g-3">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-4 mx-auto mt-3">
+            <div class="card"">
+                <img src="{% static 'media/site_imgs/scrambled-eggs.jpg' %}" class="card-img-top" alt="Scrambled eggs on toast">
+                <div class="card-body">
+                    <h5 class="card-title">Scrambled Eggs on Toast</h5>
+                    <p class="card-text">A quick and easy breakfast idea. Add some bacon and you have the perfect
+                        hangover cure!</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Servings: </li>
+                    <li class="list-group-item">Prep Time: </li>
+                    <li class="list-group-item">Cook Time: </li>
+                </ul>
+                <div class="card-body">
+                    <a href="#" class="btn" id="green-btn">Go to Recipe</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 col-xl-4 mx-auto mt-3">
+            <div class="card">
+                <img src="{% static 'media/site_imgs/mac-and-cheese.jpg' %}" class="card-img-top" alt="Bowl of mac and cheese topped with bacon">
+                <div class="card-body">
+                    <h5 class="card-title">Mac and Cheese</h5>
+                    <p class="card-text">The tastiest of comfort foods. Crispy Onions are a great addition. What are
+                        your favourite toppings?
+                    </p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Servings: </li>
+                    <li class="list-group-item">Prep Time: </li>
+                    <li class="list-group-item">Cook Time: </li>
+                </ul>
+                <div class="card-body">
+                    <a href="#" class="btn" id="green-btn">Go to Recipe</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 col-xl-4 mx-auto mt-3">
+            <div class="card">
+                <img src="{% static 'media/site_imgs/caesar-salad.jpg' %}" class="card-img-top" alt="Chicken caesar salad">
+                <div class="card-body">
+                    <h5 class="card-title">Caesar Salad</h5>
+                    <p class="card-text">A simple salad that can be as easy or elaborate as you want it to be. Why not
+                        make it vegan!</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Servings: </li>
+                    <li class="list-group-item">Prep Time: </li>
+                    <li class="list-group-item">Cook Time: </li>
+                </ul>
+                <div class="card-body">
+                    <a href="#" class="btn" id="green-btn">Go to Recipe</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
