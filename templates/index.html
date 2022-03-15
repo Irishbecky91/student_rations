@@ -68,6 +68,7 @@ aria-current="page" id="active-green"
                         <li class="list-group-item">Servings: {{ recipe.servings }}</li>
                         <li class="list-group-item">Prep Time: {{ recipe.prep_time }}</li>
                         <li class="list-group-item">Cook Time: {{ recipe.cook_time }}</li>
+                        <li class="list-group-item"><i class="fas fa-heart"></i> {{ recipe.amount_of_likes }}</li>
                     </ul>
                     <div class="card-body">
                         <a href="{% url 'recipe_detail' recipe.slug  %}" class="btn" id="green-btn">Go to Recipe</a>
@@ -75,11 +76,12 @@ aria-current="page" id="active-green"
                 </div>
             </div>
 
-            {% if forloop.counter|divisibleby:3 %}
-            </div>
-            <div class="row">
-            {% endif %}
-            {% endfor %}
+        {% if forloop.counter|divisibleby:3 %}
+        </div>
+        <div class="row">
+        {% endif %}
+        {% endfor %}
+        
         </div>
         {% if is_paginated %}
         <nav aria-label="Page Navigation">

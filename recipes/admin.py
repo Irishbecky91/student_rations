@@ -1,9 +1,6 @@
 """
 Admin
 """
-"""
-This is the admin.py page
-"""
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
 from .models import Recipe, Ingredient

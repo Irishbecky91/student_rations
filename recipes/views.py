@@ -4,7 +4,7 @@ Views
 from django.shortcuts import render, reverse, get_object_or_404
 from django.views import generic, View
 from django.http import HttpResponseRedirect
-from .models import Recipe
+from .models import Recipe, Ingredient
 from .forms import CommentForm
 
 
@@ -38,14 +38,16 @@ class RecipeDetail(View):
         recipe = get_object_or_404(queryset, slug=slug)
         comments = recipe.comments.filter(approved=True).order_by('created_on')
         liked = False
+        ingredients = Ingredient.objects.all()
         if recipe.likes.filter(id=self.request.user.id).exists():
             liked = True
 
         return render(
             request,
-            'index.html',
+            'recipe.html',
             {
                 "recipe": recipe,
+                'ingredients': ingredients,
                 "comments": comments,
                 "commented": False,
                 "liked": liked,

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+<!-- Page Title -->
+{% block title %}
+<title>Student Rations - Home</title>
+{% endblock %}
+
+
+<!-- Main Content -->
+{% block content %}
+<div class="container justify-content-center mt-3 mb-3">
+    <div class="row text-center">
+        <div class="col-12 col-md-12 col-lg-6 col-xl-6 text-center">
+            <img id="recipe-image" src="{{ recipe.featured_image.url }}" alt="{{ recipe.title }}">
+        </div>
+        <div class="col-12 col-md-12 col-lg-6 col-xl-6 text-start text-light mx-auto">
+            <h1 class="green-text">{{ recipe.title }}</h1>
+            <small>Created by: {{ recipe.author }} on {{ recipe.created_on }}</small>
+            <hr class="mx-auto mt-3 mb-3 text-light">
+            <h3 class="green-text">Ingredients</h3>
+            <ul>
+                {% for ingredient in recipe.ingredients.all %}
+                <li class="list-item">
+                    {{ ingredient.quantity }} {{ ingredient.unit }} {{ ingredient.name }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12 text-light">
+            <h3 class="green-text">Method</h3>
+            {{ recipe.directions|safe }}
+        </div>
+    </div>
+</div>
+        
+{% endblock %}
