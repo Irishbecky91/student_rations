@@ -9,11 +9,11 @@ from .forms import CommentForm
 
 
 # Create your views here.
-def home(request):
+def about(request):
     """
-    renders home page
+    renders about page
     """
-    return render(request, 'index.html', {})
+    return render(request, "about.html")
 
 
 class RecipeList(generic.ListView):
@@ -43,7 +43,7 @@ class RecipeDetail(View):
 
         return render(
             request,
-            'create_recipe.html',
+            'index.html',
             {
                 "recipe": recipe,
                 "comments": comments,

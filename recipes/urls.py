@@ -18,8 +18,8 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.home, name='home'),
-    path('/recipes', views.RecipeList.as_views(), name='recipes')
+    path('', views.RecipeList.as_view(), name='home'),
+    path('about/', views.about, name='about'),
     path('<slug:slug>/', views.RecipeDetail.as_view(), name='recipe_detail'),
     path('like/<slug:slug>', views.RecipeLike, name='recipe_like'),
 ]

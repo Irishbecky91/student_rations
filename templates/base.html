@@ -41,11 +41,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% block active_about %}{% endblock %}" {% block aria_about %}{% endblock %}
-                            href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% block active_recipes %}{% endblock %}"
-                            {% block aria_recipes %}{% endblock %} href="#">Recipes</a>
+                            href="{% url 'about' %}">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% block active_favourites %}{% endblock %}"
@@ -164,23 +160,28 @@
                         <ul class="list-unstyled list-inline">
                             <li class="list-inline-item">
                                 <a href="https://www.facebook.com" class="btn-floating btn-sm text-white"
-                                    style="font-size: 23px;" aria-label="Social Link - Facebook"><i class="fab fa-facebook"></i></a>
+                                    style="font-size: 23px;" aria-label="Social Link - Facebook"><i
+                                        class="fab fa-facebook"></i></a>
                             </li>
                             <li class="list-inline-item">
                                 <a href="https://www.twitter.com" class="btn-floating btn-sm text-white"
-                                    style="font-size: 23px;" aria-label="Social Link - Twitter"><i class="fab fa-twitter"></i></a>
+                                    style="font-size: 23px;" aria-label="Social Link - Twitter"><i
+                                        class="fab fa-twitter"></i></a>
                             </li>
                             <li class="list-inline-item">
                                 <a href="https://www.instagram.com" class="btn-floating btn-sm text-white"
-                                    style="font-size: 23px;" aria-label="Social Link - Instagram"><i class="fab fa-instagram"></i></a>
+                                    style="font-size: 23px;" aria-label="Social Link - Instagram"><i
+                                        class="fab fa-instagram"></i></a>
                             </li>
                             <li class="list-inline-item">
                                 <a href="https://www.linkedin.com" class="btn-floating btn-sm text-white"
-                                    style="font-size: 23px;" aria-label="Social Link - LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                    style="font-size: 23px;" aria-label="Social Link - LinkedIn"><i
+                                        class="fab fa-linkedin-in"></i></a>
                             </li>
                             <li class="list-inline-item">
                                 <a href="https://www.youtube.com" class="btn-floating btn-sm text-white"
-                                    style="font-size: 23px;" aria-label="Social Link - YouTube"><i class="fab fa-youtube"></i></a>
+                                    style="font-size: 23px;" aria-label="Social Link - YouTube"><i
+                                        class="fab fa-youtube"></i></a>
                             </li>
                         </ul>
 

@@ -55,7 +55,7 @@ aria-current="page" id="active-green"
                 <div class="card">
                     {% if "placeholder" in recipe.featured_image.url %}
                     {% load static %}
-                    <img class="card-img-top recipe-image" src="{% static 'media/site_images/Logo.png' %}"
+                    <img class="card-img-top recipe-image" src="{% static 'media/site_imgs/knife-fork.jpg' %}"
                         alt="Student Rations Logo">
                     {% else %}
                     <img class="card-img-top recipe-image" src="{{ recipe.featured_image.url }}" alt="{{ recipe.title }}">
