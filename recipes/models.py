@@ -27,8 +27,8 @@ class Recipe(models.Model):
     slug = models.SlugField(max_length=200, unique=True, blank=True, null=True)
     description = models.TextField(blank=True)
     directions = models.TextField()
-    prep_time = models.IntegerField()
-    cook_time = models.IntegerField()
+    prep_time = models.IntegerField(default=0)
+    cook_time = models.IntegerField(default=0)
     servings = models.IntegerField()
     featured_image = CloudinaryField('image', default='placeholder')
     likes = models.ManyToManyField(

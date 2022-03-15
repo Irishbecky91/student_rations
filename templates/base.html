@@ -43,11 +43,15 @@
                         <a class="nav-link {% block active_about %}{% endblock %}" {% block aria_about %}{% endblock %}
                             href="{% url 'about' %}">About</a>
                     </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link {% block active_share_recipe %}{% endblock %}" {% block aria_share_recipe %}{% endblock %}
+                            href="{% url 'share_recipe' %}">Share a Recipe</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link {% block active_favourites %}{% endblock %}"
                             {% block aria_favourites %}{% endblock %} href="#">Favourites</a>
                     </li>
-                    {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
                     </li>

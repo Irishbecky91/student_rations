@@ -20,6 +20,7 @@ from . import views
 urlpatterns = [
     path('', views.RecipeList.as_view(), name='home'),
     path('about/', views.about, name='about'),
+    path('share-a-recipe/', views.share_recipe, name='share_recipe'),
     path('<slug:slug>/', views.RecipeDetail.as_view(), name='recipe_detail'),
     path('like/<slug:slug>', views.RecipeLike, name='recipe_like'),
 ]

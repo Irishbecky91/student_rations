@@ -5,10 +5,10 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="container text-light">
     <div class="row">
         <div class="col">
-        <h1>Add A Recipe</h1>
+        <h1 class="text-center green-text">Add A Recipe</h1>
 
         {% load crispy_forms_tags %}
 
@@ -17,12 +17,12 @@
                 {{ form|crispy }}
                 <br>
                 <br>
-                <h2>Add Ingredients</h2>
+                <h2 class="text-center green-text">Add Ingredients</h2>
                 {{ formset.management_form }}
                 {% for form in formset %}
                 {{ form|crispy }}
                 {% endfor %}
-                <button type="submit">Submit</button>
+                <button class="text-center" type="submit">Submit</button>
             </form>
         </div>
     </div>

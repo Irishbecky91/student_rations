@@ -16,6 +16,13 @@ def about(request):
     return render(request, "about.html")
 
 
+def share_recipe(request):
+    """
+    renders the share recipe page
+    """
+    return render(request, "create_recipe.html")
+
+
 class RecipeList(generic.ListView):
     """
     This class creates the recipe list
