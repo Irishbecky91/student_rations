@@ -5,7 +5,7 @@ from django.shortcuts import render, reverse, get_object_or_404
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Recipe, Ingredient
-from .forms import CommentForm
+from .forms import CommentForm, RecipeForm, IngredientForm, IngredientFormSet
 
 
 # Create your views here.
@@ -18,9 +18,29 @@ def about(request):
 
 def share_recipe(request):
     """
-    renders the share recipe page
+    renders share a recipe page
     """
-    return render(request, "create_recipe.html")
+    recipe = Recipe.objects.all()
+    ingredient = Ingredient.objects.all()
+    recipe_form = RecipeForm(request.POST or None)
+    ingredient_form = IngredientForm(request.POST or None)
+
+    context = {
+        'recipe_form': recipe_form,
+        'ingredient_form': ingredient_form,
+        'recipe': recipe,
+        'ingredient': ingredient
+    }
+
+    if all([recipe_form.is_valid(), ingredient_form.is_valid()]):
+        recipe_form.save(commit=False)
+        ingredient_form.save(commit=False)
+        recipe.recipe = recipe
+        ingredient.recipe = recipe
+        recipe_form.save()
+        ingredient_form.save()
+
+    return render(request, "create_recipe.html", context=context)
 
 
 class RecipeList(generic.ListView):
@@ -43,7 +63,7 @@ class RecipeDetail(View):
         """
         queryset = Recipe.objects.filter(status=1)
         recipe = get_object_or_404(queryset, slug=slug)
-        comments = recipe.comments.filter(approved=True).order_by('created_on')
+        comments = recipe.comments.filter().order_by('created_on')
         liked = False
         ingredients = Ingredient.objects.all()
         if recipe.likes.filter(id=self.request.user.id).exists():
@@ -58,7 +78,9 @@ class RecipeDetail(View):
                 "comments": comments,
                 "commented": False,
                 "liked": liked,
-                "comment_form": CommentForm()
+                "comment_form": CommentForm(),
+                "recipe_form": RecipeForm(),
+                "ingredient_form": IngredientForm(),
             }
         )
 
@@ -74,7 +96,7 @@ class RecipeDetail(View):
             liked = True
 
         comment_form = CommentForm(data=request.POST)
-
+        
         if comment_form.is_valid():
             comment_form.instance.email = request.user.email
             comment_form.instance.name = request.user.username
@@ -84,16 +106,16 @@ class RecipeDetail(View):
 
         else:
             comment_form = CommentForm()
-
+        
         return render(
             request,
-            "recipe_detail.html",
+            "recipe.html",
             {
                 "recipe": recipe,
                 "comments": comments,
                 "commented": True,
                 "liked": liked,
-                "comment_form": CommentForm()
+                "comment_form": CommentForm(),
             }
         )
 

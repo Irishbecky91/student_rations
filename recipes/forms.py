@@ -14,13 +14,20 @@ class RecipeForm(forms.ModelForm):
         Meta class
         """
         model = Recipe
-        fields = '__all__'
+        fields = [
+            'title',
+            'description',
+            'serves',
+            'prep_time',
+            'cook_time',
+            'directions'
+        ]
 
     def clean_servings(self):
         """
         Ensures servings is greater than zero
         """
-        value = self.cleaned_data.get("servings")
+        value = self.cleaned_data.get("serves")
         print(value)
         if value < 1:
             raise forms.ValidationError(

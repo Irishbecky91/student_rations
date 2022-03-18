@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_tags %}
 
 <!-- Page Title -->
 {% block title %}
@@ -32,6 +32,26 @@
         <div class="col-12 text-light">
             <h3 class="green-text">Method</h3>
             {{ recipe.directions|safe }}
+        </div>
+    </div>
+</div>
+<hr>
+<div class="container text-light">
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-8 col-xl-8">
+
+        </div>
+        <div class="col-12 col-md-6 col-lg-4 col-xl-4">
+            {% if user.is_authenticated %}
+
+            <h3>Leave a comment:</h3>
+            <p>Posting as: {{ user.username }}</p>
+            <form method="post" style="margin-top: 1.3em;">
+                {{ comment_form | crispy }}
+                {% csrf_token %}
+                <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+            </form>
+            {% endif %}
         </div>
     </div>
 </div>
