@@ -30,6 +30,7 @@ def share_recipe(request):
 
     if recipe_form.is_valid():
         recipe = recipe_form.save(commit=False)
+        recipe.status = 1
         recipe.save()
 
     return render(request, "create_recipe.html", context=context)
