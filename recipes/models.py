@@ -3,6 +3,7 @@ Models
 """
 
 from django.db import models
+from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
@@ -24,13 +25,14 @@ class Recipe(models.Model):
     )
     status = models.IntegerField(choices=STATUS, default=0)
     title = models.CharField(max_length=150)
-    slug = models.SlugField(max_length=200, unique=True, blank=True, null=True)
+    slug = models.SlugField(unique=True, blank=True, null=True)
     description = models.TextField(blank=True)
     prep_time = models.IntegerField(default=0)
     cook_time = models.IntegerField(default=0)
     serves = models.IntegerField()
     directions = models.TextField()
-    ingredients = models.TextField(default="I forgot to add the ingredients!", blank=False, null=False)
+    ingredients = models.TextField(default="",
+                                   blank=False, null=False)
     featured_image = CloudinaryField('image', default='placeholder')
     likes = models.ManyToManyField(
         User,
@@ -52,6 +54,10 @@ class Recipe(models.Model):
         Returns a string showing the title.
         """
         return str(self.title)
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
     def amount_of_likes(self):
         """

@@ -1,7 +1,7 @@
 """
 Views
 """
-from django.shortcuts import render, reverse, get_object_or_404
+from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Recipe
@@ -16,23 +16,22 @@ def about(request):
     return render(request, "about.html")
 
 
-def share_recipe(request):
+def share_recipe(request, slug):
     """
     renders share a recipe page
     """
-    recipe = Recipe.objects.all()
-    recipe_form = RecipeForm(request.POST or None)
+    recipe_form = RecipeForm(request.POST or None, request.FILES or None)
 
     context = {
         'recipe_form': recipe_form,
-        'recipe': recipe,
     }
 
-    if recipe_form.is_valid():
-        recipe = recipe_form.save(commit=False)
-        recipe.status = 1
-        recipe.save()
-
+    if request.method == "POST":
+        recipe_form = RecipeForm(request.POST, request.FILES)
+        if recipe_form.is_valid():
+            recipe = recipe_form.save(commit=False)
+            recipe.status = 1
+            recipe.save()
     return render(request, "create_recipe.html", context=context)
 
 
@@ -86,7 +85,7 @@ class RecipeDetail(View):
             liked = True
 
         comment_form = CommentForm(data=request.POST)
-        
+
         if comment_form.is_valid():
             comment_form.instance.email = request.user.email
             comment_form.instance.name = request.user.username
@@ -96,7 +95,7 @@ class RecipeDetail(View):
 
         else:
             comment_form = CommentForm()
-        
+
         return render(
             request,
             "recipe.html",
@@ -125,4 +124,4 @@ class RecipeLike(View):
         else:
             recipe.likes.add(request.user)
 
-        return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+        return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))

@@ -2,11 +2,11 @@
 Forms
 """
 from django import forms
-from django.forms import ModelForm
+# from django.forms import ModelForm
 from .models import Recipe, Comment
 
 
-class RecipeForm(ModelForm):
+class RecipeForm(forms.ModelForm):
     """
     Recipe Input Form
     """
@@ -22,8 +22,12 @@ class RecipeForm(ModelForm):
             'prep_time',
             'cook_time',
             'directions',
-            'ingredients'
+            'ingredients',
+            'featured_image'
         ]
+
+    def __init__(self, *args, **kwargs):
+        super(RecipeForm, self).__init__(*args, **kwargs)
 
     def clean_servings(self):
         """
