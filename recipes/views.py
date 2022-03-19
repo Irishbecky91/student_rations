@@ -4,8 +4,8 @@ Views
 from django.shortcuts import render, reverse, get_object_or_404
 from django.views import generic, View
 from django.http import HttpResponseRedirect
-from .models import Recipe, Ingredient
-from .forms import CommentForm, RecipeForm, IngredientForm, IngredientFormSet
+from .models import Recipe
+from .forms import CommentForm, RecipeForm
 
 
 # Create your views here.
@@ -21,24 +21,16 @@ def share_recipe(request):
     renders share a recipe page
     """
     recipe = Recipe.objects.all()
-    ingredient = Ingredient.objects.all()
     recipe_form = RecipeForm(request.POST or None)
-    ingredient_form = IngredientForm(request.POST or None)
 
     context = {
         'recipe_form': recipe_form,
-        'ingredient_form': ingredient_form,
         'recipe': recipe,
-        'ingredient': ingredient
     }
 
-    if all([recipe_form.is_valid(), ingredient_form.is_valid()]):
-        recipe_form.save(commit=False)
-        ingredient_form.save(commit=False)
-        recipe.recipe = recipe
-        ingredient.recipe = recipe
-        recipe_form.save()
-        ingredient_form.save()
+    if recipe_form.is_valid():
+        recipe = recipe_form.save(commit=False)
+        recipe.save()
 
     return render(request, "create_recipe.html", context=context)
 
@@ -63,9 +55,8 @@ class RecipeDetail(View):
         """
         queryset = Recipe.objects.filter(status=1)
         recipe = get_object_or_404(queryset, slug=slug)
-        comments = recipe.comments.filter().order_by('created_on')
+        comments = recipe.comments.filter(approved=True).order_by('created_on')
         liked = False
-        ingredients = Ingredient.objects.all()
         if recipe.likes.filter(id=self.request.user.id).exists():
             liked = True
 
@@ -74,13 +65,11 @@ class RecipeDetail(View):
             'recipe.html',
             {
                 "recipe": recipe,
-                'ingredients': ingredients,
                 "comments": comments,
                 "commented": False,
                 "liked": liked,
                 "comment_form": CommentForm(),
                 "recipe_form": RecipeForm(),
-                "ingredient_form": IngredientForm(),
             }
         )
 

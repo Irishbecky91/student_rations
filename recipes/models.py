@@ -26,10 +26,11 @@ class Recipe(models.Model):
     title = models.CharField(max_length=150)
     slug = models.SlugField(max_length=200, unique=True, blank=True, null=True)
     description = models.TextField(blank=True)
-    directions = models.TextField()
     prep_time = models.IntegerField(default=0)
     cook_time = models.IntegerField(default=0)
     serves = models.IntegerField()
+    directions = models.TextField()
+    ingredients = models.TextField(default="I forgot to add the ingredients!", blank=False, null=False)
     featured_image = CloudinaryField('image', default='placeholder')
     likes = models.ManyToManyField(
         User,
@@ -59,25 +60,6 @@ class Recipe(models.Model):
         return self.likes.count()
 
 
-class Ingredient(models.Model):
-    """
-    Ingredients model
-    """
-    name = models.CharField(max_length=100)
-    unit = models.CharField(max_length=30, blank=True)
-    quantity = models.FloatField(null=True, blank=True)
-    recipe = models.ForeignKey(
-        Recipe, on_delete=models.CASCADE,
-        related_name="ingredients"
-        )
-
-    def __str__(self):
-        """
-        Returns a string showing the name.
-        """
-        return str(self.name)
-
-
 class Comment(models.Model):
     """
     Comment class
@@ -91,7 +73,7 @@ class Comment(models.Model):
     email = models.EmailField()
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
-    # approved = models.BooleanField(default=False)
+    approved = models.BooleanField(default=False)
 
     class Meta:
         """

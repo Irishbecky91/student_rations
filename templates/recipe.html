@@ -19,13 +19,7 @@
             <small>Created by: {{ recipe.author }} on {{ recipe.created_on }}</small>
             <hr class="mx-auto mt-3 mb-3 text-light">
             <h3 class="green-text">Ingredients</h3>
-            <ul>
-                {% for ingredient in recipe.ingredients.all %}
-                <li class="list-item">
-                    {{ ingredient.quantity }} {{ ingredient.unit }} {{ ingredient.name }}
-                </li>
-                {% endfor %}
-            </ul>
+            {{ recipe.ingredients|safe }}
         </div>
     </div>
     <div class="row mt-5">

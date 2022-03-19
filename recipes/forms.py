@@ -2,10 +2,11 @@
 Forms
 """
 from django import forms
-from .models import Recipe, Ingredient, Comment
+from django.forms import ModelForm
+from .models import Recipe, Comment
 
 
-class RecipeForm(forms.ModelForm):
+class RecipeForm(ModelForm):
     """
     Recipe Input Form
     """
@@ -20,7 +21,8 @@ class RecipeForm(forms.ModelForm):
             'serves',
             'prep_time',
             'cook_time',
-            'directions'
+            'directions',
+            'ingredients'
         ]
 
     def clean_servings(self):
@@ -34,23 +36,6 @@ class RecipeForm(forms.ModelForm):
                 "The number of servings must be greater than zero"
                 )
         return value
-
-
-class IngredientForm(forms.ModelForm):
-    """
-    Ingredients Input Form
-    """
-    class Meta:
-        """
-        Meta class
-        """
-        model = Ingredient
-        exclude = ('recipe',)
-
-
-IngredientFormSet = forms.inlineformset_factory(
-    Recipe, Ingredient, form=IngredientForm
-    )
 
 
 class CommentForm(forms.ModelForm):
