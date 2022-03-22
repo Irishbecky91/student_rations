@@ -1,1 +1,1 @@
-web: gunicorn recipes.wsgi
+web: gunicorn student_rations.wsgi
