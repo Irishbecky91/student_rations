@@ -173,7 +173,7 @@ SUMMERNOTE_CONFIG = {
 
         # Change editor size
         'width': '100%',
-        'height': '480',
+        'height': '12vmin',
 
         # Use proper language setting automatically (default)
         'lang': None,
@@ -184,7 +184,7 @@ SUMMERNOTE_CONFIG = {
             ['style', ['style']],
             ['font', ['bold', 'underline', 'clear']],
             ['fontname', ['fontname']],
-            ['color', ['color']],
+            ['color', ['antiquewhite']],
             ['para', ['ul', 'ol', 'paragraph']],
             ['table', ['table']],
             ['insert', ['link', 'picture', 'video']],
@@ -192,12 +192,8 @@ SUMMERNOTE_CONFIG = {
         ],
     },
 
-    # You can completely disable the attachment feature.
-    'disable_attachment': False,
-
     # Lazy initialization
     # If you want to initialize summernote at the bottom of page, set this as True
     # and call `initSummernote()` on your page.
     'lazy': True,
-
 }

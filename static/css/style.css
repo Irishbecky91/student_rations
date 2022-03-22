@@ -9,6 +9,7 @@ main {
     flex-grow: 1;
 }
 
+
 /* Image Styling */
 .header-image {
     width: 100%;
@@ -21,6 +22,7 @@ main {
     height: auto;
 }
 
+
 /* Text Styling */
 .green-text, #active-green {
     color: #97BE11;
@@ -29,6 +31,13 @@ main {
 #active-green {
     font-weight: bold;
 }
+
+.note-toolbar .note-btn, .note-toolbar .note-btn:focus, .note-toolbar .note-btn:active {
+    background-color: #2e353e !important;
+    color: #9097a0 !important;
+    border-color: #2e353e !important;
+}
+
 
 /* Button Styling */
 #green-btn {
