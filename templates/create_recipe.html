@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load cloudinary %}
 {% load crispy_forms_tags %}
+{% load static %}
 
 {% block title %}
 <title>Add Your Recipe</title>
@@ -10,7 +11,7 @@
 {% if user.is_authenticated %}
 <div class="container text-light">
     <div class="row">
-        <div class="col">
+        <div class="col offset-2">
             <h1 class="text-center green-text">Add A Recipe</h1>
 
 
@@ -20,8 +21,9 @@
             <p>Posting as: {{ user.username }}</p>
             <form action="." method="post" style="margin-top: 1.3em;" enctype="multipart/form-data">
                 <div class="row">
-                    <div class="col-12 col-md-6">
-                        {{ recipe_form | crispy }}
+                    <div class="col">
+                        {{ recipe_form | crispy | safe }}
+                        
                         {% csrf_token %}
                     </div>
                 </div>
@@ -32,5 +34,16 @@
     </div>
 </div>
 {% else %}
+<div class="container">
+    <div class="row">
+        
+    </div>
+</div>
 {% endif %}
 {% endblock %}
+
+{% block postload_js %}
+{{ block.super }}
+$('#directions').summernote();
+$('#ingredients').summernote();
+{% endblock%}

@@ -1,7 +1,7 @@
 """
 Views
 """
-from django.shortcuts import render, reverse, redirect, get_object_or_404
+from django.shortcuts import render, reverse, get_object_or_404
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Recipe
@@ -16,7 +16,7 @@ def about(request):
     return render(request, "about.html")
 
 
-def share_recipe(request, slug):
+def share_recipe(request):
     """
     renders share a recipe page
     """
