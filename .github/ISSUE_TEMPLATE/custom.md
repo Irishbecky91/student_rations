@@ -1,10 +1,10 @@
 ---
 name: Custom issue template
-about: Describe this issue template's purpose here.
+about: 'USER STORY: <Title>'
 title: ''
 labels: ''
-assignees: ''
+assignees: Irishbecky91
 
 ---
 
-
+As a **role**, I can **capability** so that **received benefit**.
