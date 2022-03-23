@@ -2,7 +2,7 @@
 Views
 """
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, reverse, get_object_or_404  # , redirect
+from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Recipe
@@ -19,25 +19,24 @@ def about(request):
 
 def create_recipe(request):
     """
-    renders create a recipe page
+    renders share a recipe page
     """
     recipe_form = RecipeForm(request.POST or None, request.FILES or None)
-    initial_data = {'username': user.username}
-    context = {'recipe_form': recipe_form}
-    
+    context = {
+        'recipe_form': recipe_form,
+    }
+
     if request.method == "POST":
-        recipe_form = RecipeForm(
-            request.POST,
-            request.FILES,
-            initial=initial_data
-        )
+        recipe_form = RecipeForm(request.POST, request.FILES)
         if recipe_form.is_valid():
-            recipe = recipe_form.save(commit=False)
-            recipe.user = request.user
-            recipe.status = 1
-            recipe.save()
-            # return redirect(recipe.)
-    return render(request, "create_recipe.html", context=context)
+            obj = recipe_form.save(commit=False)
+            obj.user = request.user
+            obj.status = 1
+            obj.save()
+            return redirect('home')
+    else:
+        recipe_form = RecipeForm()
+    return render(request, "create_recipe.html", context)
 
 
 @login_required
@@ -51,9 +50,14 @@ def edit_recipe(request, id=None):
         "recipe_form": recipe_form,
         "object": obj
     }
-    if recipe_form.is_valid():
-        recipe_form.save()
-        context['message'] = 'You saved this recipe.'
+
+    if request.method == "POST":
+        recipe_form = RecipeForm(request.POST, request.FILES)
+        if recipe_form.is_valid():
+            recipe_form.save()
+            context['message'] = 'You saved this recipe.'
+    else:
+        recipe_form = RecipeForm()
     return render(request, "edit_recipe.html", context)
 
 

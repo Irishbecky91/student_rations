@@ -22,10 +22,6 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('share-a-recipe/', views.create_recipe, name='create_recipe'),
     path('edit-a-recipe/', views.edit_recipe, name='edit_recipe'),
-    path(
-        '<int:author>/<slug>/',
-        views.RecipeDetail.as_view(),
-        name='recipe_detail'
-    ),
+    path('<slug:slug>/', views.RecipeDetail.as_view(), name='recipe_detail'),
     path('like/<slug:slug>/', views.RecipeLike, name='recipe_like'),
 ]

@@ -4,7 +4,7 @@ Models
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
-from django.shortcuts import reverse
+# from django.shortcuts import reverse
 from cloudinary.models import CloudinaryField
 
 
@@ -19,9 +19,8 @@ class Recipe(models.Model):
     author = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
-        related_name='new_recipe',
-        blank=True,
-        null=True
+        null=True,
+        blank=True
     )
     status = models.IntegerField(choices=STATUS, default=0)
     title = models.CharField(max_length=150)
@@ -42,11 +41,10 @@ class Recipe(models.Model):
     created_on = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     updated_on = models.DateTimeField(auto_now=True)
 
-
     class Meta:
         """
-        Ordering our recipes in created order,
-        the lack of '-' means in ascending order.
+        Ordering the recipes in created order,
+        the '-' means in descending order.
         """
         ordering = ['-created_on']
 
@@ -62,33 +60,21 @@ class Recipe(models.Model):
 
     def amount_of_likes(self):
         """
-        Retun total amount of likes on a recipe
+        Return total amount of likes on a recipe
         """
         return self.likes.count()
 
-    def get_absolute_url(self):
-        """
-        gets absolute url
-        """
-        return reverse(
-            "recipe:article_detail",
-            kwargs={
-                "author": self.author,
-                "slug": self.slug
-            }
-        )
+    # def get_edit_url(self):
+    #     """
+    #     gets edit url
+    #     """
+    #     return reverse("edit_recipe", kwargs={"slug": self.slug})
 
-    def get_edit_url(self):
-        """
-        gets edit url
-        """
-        return reverse("recipes:update", kwargs={"slug": self.slug})
-
-    def get_delete_url(self):
-        """
-        gets delete url
-        """
-        return reverse("recipes:delete", kwargs={"slug": self.slug})
+    # def get_delete_url(self):
+    #     """
+    #     gets delete url
+    #     """
+    #     return reverse("delete_recipe", kwargs={"slug": self.slug})
 
 
 class Comment(models.Model):
