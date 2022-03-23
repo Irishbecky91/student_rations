@@ -1,9 +1,9 @@
 ---
 name: Custom issue template
-about: 'USER STORY: <Title>'
-title: ''
+about: Default User Story Template
+title: 'USER STORY: <Title>'
 labels: ''
-assignees: Irishbecky91
+assignees: ''
 
 ---
 
