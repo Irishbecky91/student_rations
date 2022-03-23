@@ -57,7 +57,7 @@ aria-current="page" id="active-green"
     </div>
 </div>
 
-<div class="container justify-content-center text-center text-md-left mb-3">
+<div class="container text-center text-md-left mb-3">
     <div class="row text-center text-md-left g-3 card-row">
 
         {% for recipe in recipe_list %}
@@ -100,12 +100,12 @@ aria-current="page" id="active-green"
         <ul class="pagination justify-content-center">
             {% if page_obj.has_previous %}
             <li>
-                <a href="?page={{ page_obj.previous_page_number }}" class="page_link">&laquo; PREV</a>
+                <a href="?page={{ page_obj.previous_page_number }}" class="page_link active-green">&laquo; PREV</a>
             </li>
             {% endif %}
             {% if page_obj.has_next %}
             <li>
-                <a href="?page={{ page_obj.next_page_number }}" class="page_link">NEXT &raquo;</a>
+                <a href="?page={{ page_obj.next_page_number }}" class="page_link active-green">NEXT &raquo;</a>
             </li>
             {% endif %}
         </ul>

@@ -3,13 +3,34 @@
 {% load i18n %}
 {% load account socialaccount %}
 
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
+{% block title %}
+<title>Sign In!</title>
+{% endblock %}
+
+
+{% block active_login %}
+active
+{% endblock %}
+
+{% block aria_login %}
+aria-current="page" id="active-green"
+{% endblock %}
+
+
+<!-- Header Image -->
+{% block header %}
+<header>
+    {% load static %}
+    <img class="img-fluid header-image" src="{% static 'media/site_imgs/food-background.png' %}" alt="food background">
+</header>
+{% endblock %}
+
 
 {% block content %}
 
 <div class="container text-white">
     <div class="row">
-        <div class="col-md-8 mt-3 offset-md-2">
+        <div class="col mt-3 justify-content-center text-center">
 
             <h3 class="green-text mb-3">{% trans "Sign In" %}</h3>
 
@@ -22,7 +43,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="co-md-8 mt-3 offset-md-2">
+        <div class="col mt-3 mb-5 justify-content-center text-center">
 
             <form class="login" method="POST" action="{% url 'account_login' %}">
                 {% csrf_token %}

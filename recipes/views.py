@@ -29,10 +29,10 @@ def create_recipe(request):
     if request.method == "POST":
         recipe_form = RecipeForm(request.POST, request.FILES)
         if recipe_form.is_valid():
-            obj = recipe_form.save(commit=False)
-            obj.user = request.user
-            obj.status = 1
-            obj.save()
+            recipe_form = recipe_form.save(commit=False)
+            recipe_form.author = request.user
+            recipe_form.status = 1
+            recipe_form.save()
             return redirect('home')
     else:
         recipe_form = RecipeForm()
@@ -68,7 +68,7 @@ class RecipeList(generic.ListView):
     model = Recipe
     queryset = Recipe.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
-    paginate_by = 6
+    paginate_by = 12
 
 
 class RecipeDetail(View):

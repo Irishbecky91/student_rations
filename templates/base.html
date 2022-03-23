@@ -59,14 +59,14 @@
                             href="{% url 'create_recipe' %}">Share a Recipe</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                        <a class="nav-link {% block active_logout %}{% endblock %}" {% block aria_logout %}{% endblock %} href="{% url 'account_logout' %}">Sign Out</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+                        <a class="nav-link {% block active_login %}{% endblock %}" {% block aria_login %}{% endblock %} href="{% url 'account_login' %}">Sign In</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+                        <a class="nav-link {% block active_signup %}{% endblock %}" {% block aria_signup %}{% endblock %} href="{% url 'account_signup' %}">Sign Up</a>
                     </li>
                     {% endif %}
                 </ul>
@@ -101,18 +101,18 @@
                     <h5 class="text-uppercase mb-4 font-weight-bold green-text">Useful Sites</h5>
                     <p>
                         <a href="https://www.homestoreandmore.ie/kitchen-cookware" class="text-white"
-                            style="text-decoration: none;"> Cooking Utensils</a>
+                            style="text-decoration: none;" target="_blank"> Cooking Utensils</a>
                     </p>
                     <p>
                         <a href="https://www.thestayclub.com/blog/10-best-budgeting-apps-for-students/"
-                            class="text-white" style="text-decoration: none;"> Top 10 Budget Apps</a>
+                            class="text-white" style="text-decoration: none;" target="_blank"> Top 10 Budget Apps</a>
                     </p>
                     <p>
                         <a href="https://www.savvyspender.ie/post/the-best-student-discounts-in-ireland"
-                            class="text-white" style="text-decoration: none;"> Best Student Discounts</a>
+                            class="text-white" style="text-decoration: none;" target="_blank"> Best Student Discounts</a>
                     </p>
                     <p>
-                        <a href="https://www.lidl.ie/super-savers" class="text-white" style="text-decoration: none;">
+                        <a href="https://www.lidl.ie/super-savers" class="text-white" style="text-decoration: none;" target="_blank">
                             Lidl Supersavers</a>
                     </p>
 
@@ -120,17 +120,23 @@
 
                 <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
                     <h5 class="text-uppercase mb-4 font-weight-bold green-text">Our links</h5>
+                    {% if user.is_authenticated %}
                     <p>
-                        <a href="#" class="text-white" style="text-decoration: none;">Login or Register</a>
+                        <a href="{% url 'account_logout' %}" class="text-white" style="text-decoration: none;">Sign Out</a>
+                    </p>
+                    {% else %}
+                    <p>
+                        <a href="{% url 'account_login' %}" class="text-white" style="text-decoration: none;">Sign In</a>
                     </p>
                     <p>
-                        <a href="#" class="text-white" style="text-decoration: none;">Add Recipes</a>
+                        <a href="{% url 'account_signup' %}" class="text-white" style="text-decoration: none;">Sign Up</a>
+                    </p>
+                    {% endif %}
+                    <p>
+                        <a href="{% url 'create_recipe' %}" class="text-white" style="text-decoration: none;">Share Recipes</a>
                     </p>
                     <p>
-                        <a href="#" class="text-white" style="text-decoration: none;">Search</a>
-                    </p>
-                    <p>
-                        <a href="#" class="text-white" style="text-decoration: none;">Favourites</a>
+                        <a href="{% url 'about' %}" class="text-white" style="text-decoration: none;">About</a>
                     </p>
                 </div>
 
@@ -168,27 +174,27 @@
                         <ul class="list-unstyled list-inline">
                             <li class="list-inline-item">
                                 <a href="https://www.facebook.com" class="btn-floating btn-sm text-white"
-                                    style="font-size: 23px;" aria-label="Social Link - Facebook"><i
+                                    style="font-size: 23px;" aria-label="Social Link - Facebook" target="_blank"><i
                                         class="fab fa-facebook"></i></a>
                             </li>
                             <li class="list-inline-item">
                                 <a href="https://www.twitter.com" class="btn-floating btn-sm text-white"
-                                    style="font-size: 23px;" aria-label="Social Link - Twitter"><i
+                                    style="font-size: 23px;" aria-label="Social Link - Twitter" target="_blank"><i
                                         class="fab fa-twitter"></i></a>
                             </li>
                             <li class="list-inline-item">
                                 <a href="https://www.instagram.com" class="btn-floating btn-sm text-white"
-                                    style="font-size: 23px;" aria-label="Social Link - Instagram"><i
+                                    style="font-size: 23px;" aria-label="Social Link - Instagram" target="_blank"><i
                                         class="fab fa-instagram"></i></a>
                             </li>
                             <li class="list-inline-item">
                                 <a href="https://www.linkedin.com" class="btn-floating btn-sm text-white"
-                                    style="font-size: 23px;" aria-label="Social Link - LinkedIn"><i
+                                    style="font-size: 23px;" aria-label="Social Link - LinkedIn" target="_blank"><i
                                         class="fab fa-linkedin-in"></i></a>
                             </li>
                             <li class="list-inline-item">
                                 <a href="https://www.youtube.com" class="btn-floating btn-sm text-white"
-                                    style="font-size: 23px;" aria-label="Social Link - YouTube"><i
+                                    style="font-size: 23px;" aria-label="Social Link - YouTube" target="_blank"><i
                                         class="fab fa-youtube"></i></a>
                             </li>
                         </ul>

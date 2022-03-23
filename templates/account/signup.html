@@ -4,10 +4,29 @@
 
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
+
+{% block active_signup %}
+active
+{% endblock %}
+
+{% block aria_signup %}
+aria-current="page" id="active-green"
+{% endblock %}
+
+
+<!-- Header Image -->
+{% block header %}
+<header>
+    {% load static %}
+    <img class="img-fluid header-image" src="{% static 'media/site_imgs/food-background.png' %}" alt="food background">
+</header>
+{% endblock %}
+
+
 {% block content %}
 <div class="container text-white">
     <div class="row">
-        <div class="col-md-8 mt-3 mb-3 offset-md-2">
+        <div class="col mt-3 mb-5 text-center">
 
             <h3 class="green-text mb-3">{% trans "Sign Up" %}</h3>
 
@@ -22,5 +41,7 @@
                 {% endif %}
                 <button class="btn btn-warning" type="submit">{% trans "Sign Up" %} &raquo;</button>
             </form>
-
-            {% endblock %}
+        </div>
+    </div>
+</div>
+{% endblock %}
