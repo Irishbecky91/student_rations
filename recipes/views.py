@@ -1,9 +1,9 @@
 """
 Views
 """
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.views import generic, View
+from django.views.generic.edit import UpdateView
 from django.http import HttpResponseRedirect
 from .models import Recipe
 from .forms import CommentForm, RecipeForm
@@ -37,28 +37,6 @@ def create_recipe(request):
     else:
         recipe_form = RecipeForm()
     return render(request, "create_recipe.html", context)
-
-
-@login_required
-def edit_recipe(request, id=None):
-    """
-    RECIPE UPDATE VIEW
-    """
-    obj = get_object_or_404(Recipe, id=id, user=request.user)
-    recipe_form = RecipeForm(request.POST or None, instance=obj)
-    context = {
-        "recipe_form": recipe_form,
-        "object": obj
-    }
-
-    if request.method == "POST":
-        recipe_form = RecipeForm(request.POST, request.FILES)
-        if recipe_form.is_valid():
-            recipe_form.save()
-            context['message'] = 'You saved this recipe.'
-    else:
-        recipe_form = RecipeForm()
-    return render(request, "edit_recipe.html", context)
 
 
 class RecipeList(generic.ListView):
@@ -135,6 +113,27 @@ class RecipeDetail(View):
         )
 
 
+def edit_recipe(request, slug):
+    """
+    Recipe update view
+    """
+    recipe = get_object_or_404(Recipe, slug=slug, user=request.user)
+    recipe_form = RecipeForm(request.POST or None, instance=recipe)
+    context = {
+        "recipe_form": recipe_form,
+        "recipe": recipe
+    }
+
+    if request.method == "POST":
+        recipe_form = RecipeForm(request.POST, request.FILES)
+        if recipe_form.is_valid():
+            recipe_form.save()
+            context['message'] = 'You saved this recipe.'
+    else:
+        recipe_form = RecipeForm()
+    return render(request, "edit_recipe.html", context)
+
+
 class RecipeLike(View):
     """
     Likes on a recipe
@@ -143,7 +142,7 @@ class RecipeLike(View):
         """
         Submits to view
         """
-        recipe = get_object_or_404(Recipe(), slug=slug)
+        recipe = get_object_or_404(Recipe, slug=slug)
 
         if recipe.likes.filter(id=request.user.id).exists():
             recipe.likes.remove(request.user)

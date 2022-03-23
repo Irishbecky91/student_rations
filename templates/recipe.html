@@ -22,8 +22,33 @@
         <div class="col-12 col-md-12 col-lg-6 col-xl-6 text-start text-light mx-auto">
             <h1 class="green-text">{{ recipe.title }}</h1>
 
-            <small>Created by: {{ recipe.author }} on {{ recipe.created_on }}</small>
+            <p><small>Created by: {{ recipe.author }} on {{ recipe.created_on }}</small></p>
+            <div class="col">
+                <strong>
+                    {% if user.is_authenticated %}
+                    <form action="{% url 'recipe_like' recipe.slug %}" class="d-inline" method="POST">
+                        {% csrf_token %}
+                        {% if liked %}
+                        <button type="submit" name="recipe_id" value="{{ recipe.slug }}" class="btn btn-signup btn-md" id="green-btn"><i
+                                class="fas fa-heart"></i> {{ recipe.amount_of_likes }} </button>
+                        {% else %}
+                        <button type="submit" name="recipe_id" value="{{ recipe.slug }}" class="btn btn-signup btn-md" id="green-btn"><i
+                                class="far fa-heart"></i> {{ recipe.amount_of_likes }}</button>
+                        {% endif %}
+                    </form>
+                    {% else %}
+                    <span class="text-light"><i class="far fa-heart"></i> {{ recipe.amount_of_likes }} </span>
+                    {% endif %}
+                </strong>
+            </div>
+            
             <hr class="mx-auto mt-3 mb-3 text-light">
+            <div class="col mt-2 mb-3">
+                {% if recipe.author.is_authenticated %}
+                <a href="#" class="edit"><button class="btn btn-signup btn-md" id="green-btn" value="{{ recipe.slug }}" type="button">Edit</button></a>
+                <a href="#" class="delete"><button class="btn btn-signup btn-md mx-2" id="green-btn" value="{{ recipe.slug }}" type="button">Delete</button></a>
+                {% endif %}
+            </div>
             <h3 class="green-text">Ingredients</h3>
             {{ recipe.ingredients|safe }}
         </div>
@@ -38,10 +63,31 @@
 <div class="container text-light">
     <div class="row">
         <hr class="text-light">
-        <div class="col-12 col-md-6 col-lg-8 col-xl-8">
-
+        <div class="col-12 col-md-6 col-lg-8 col-xl-8 mb-5">
+            <h3 class="green-text">Comments:</h3>
+            <div class="card-body">
+                {% for comment in comments %}
+                <div class="comments" style="padding: 15px;">
+                    <p class="font-weight-bold">
+                        <span class="green-text">
+                            {{ comment.name }}
+                        </span>
+                        <span class=" text-muted font-weight-normal">
+                            {{ comment.created_on }}
+                        </span> wrote:
+                    </p>
+                    {{ comment.body | linebreaks }}
+                    <hr class="text-light">
+                </div>
+                {% endfor %}
+            </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 col-xl-4">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-4 mb-5">
+            {% if commented %}
+            <div class="alert alert-success" role="alert">
+                Your comment is being approved, please wait.
+            </div>
+            {% else %}
             {% if user.is_authenticated %}
 
             <h3>Leave a comment:</h3>
@@ -49,8 +95,9 @@
             <form method="post" style="margin-top: 1.3em;">
                 {{ comment_form | crispy }}
                 {% csrf_token %}
-                <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                <button type="submit" class="btn btn-signup btn-md" id="green-btn">Submit</button>
             </form>
+            {% endif %}
             {% endif %}
         </div>
     </div>

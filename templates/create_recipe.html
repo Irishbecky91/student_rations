@@ -29,13 +29,13 @@ aria-current="page" id="active-green"
 </header>
 {% endblock %}
 
+
 {% block content %}
 {% if user.is_authenticated %}
 <div class="container text-light">
     <div class="row">
         <div class="col mt-3 mb-5 offset-2">
             <h1 class="text-center green-text">Add A Recipe</h1>
-            <p>Posting as: <span class="green-text">{{ user.username }}</span></p>
             <form action="." method="post" style="margin-top: 1.3em;" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col">

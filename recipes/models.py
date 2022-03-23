@@ -64,18 +64,6 @@ class Recipe(models.Model):
         """
         return self.likes.count()
 
-    # def get_edit_url(self):
-    #     """
-    #     gets edit url
-    #     """
-    #     return reverse("edit_recipe", kwargs={"slug": self.slug})
-
-    # def get_delete_url(self):
-    #     """
-    #     gets delete url
-    #     """
-    #     return reverse("delete_recipe", kwargs={"slug": self.slug})
-
 
 class Comment(models.Model):
     """
