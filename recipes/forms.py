@@ -23,7 +23,7 @@ class RecipeForm(forms.ModelForm):
             'cook_time',
             'ingredients',
             'directions',
-            'featured_image'
+            'featured_image',
         ]
         widgets = {
             'directions': SummernoteInplaceWidget(),

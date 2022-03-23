@@ -3,9 +3,23 @@
 {% load crispy_forms_tags %}
 {% load static %}
 
+
 {% block title %}
 <title>Add Your Recipe</title>
 {% endblock %}
+
+
+<!-- Navbar Active Link -->
+{% block active_create_recipe %}
+active
+{% endblock %}
+
+
+<!-- aria-current Attribute for active nav link -->
+{% block aria_create_recipe %}
+aria-current="page" id="active-green"
+{% endblock %}
+
 
 <!-- Header Image -->
 {% block header %}

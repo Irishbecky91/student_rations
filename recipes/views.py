@@ -2,7 +2,7 @@
 Views
 """
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, reverse, redirect, get_object_or_404
+from django.shortcuts import render, reverse, get_object_or_404  # , redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Recipe
@@ -17,17 +17,20 @@ def about(request):
     return render(request, "about.html")
 
 
-def share_recipe(request):
+def create_recipe(request):
     """
-    renders share a recipe page
+    renders create a recipe page
     """
     recipe_form = RecipeForm(request.POST or None, request.FILES or None)
-    context = {
-        'recipe_form': recipe_form,
-    }
-
+    initial_data = {'username': user.username}
+    context = {'recipe_form': recipe_form}
+    
     if request.method == "POST":
-        recipe_form = RecipeForm(request.POST, request.FILES)
+        recipe_form = RecipeForm(
+            request.POST,
+            request.FILES,
+            initial=initial_data
+        )
         if recipe_form.is_valid():
             recipe = recipe_form.save(commit=False)
             recipe.user = request.user

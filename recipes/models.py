@@ -1,7 +1,6 @@
 """
 Models
 """
-
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
@@ -26,7 +25,7 @@ class Recipe(models.Model):
     )
     status = models.IntegerField(choices=STATUS, default=0)
     title = models.CharField(max_length=150)
-    slug = models.SlugField(unique=True, blank=True, null=True)
+    slug = models.SlugField(blank=False, null=False, default='author')
     description = models.TextField(blank=True)
     prep_time = models.IntegerField(default=0)
     cook_time = models.IntegerField(default=0)
@@ -42,6 +41,7 @@ class Recipe(models.Model):
     )
     created_on = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     updated_on = models.DateTimeField(auto_now=True)
+
 
     class Meta:
         """
@@ -66,11 +66,29 @@ class Recipe(models.Model):
         """
         return self.likes.count()
 
+    def get_absolute_url(self):
+        """
+        gets absolute url
+        """
+        return reverse(
+            "recipe:article_detail",
+            kwargs={
+                "author": self.author,
+                "slug": self.slug
+            }
+        )
+
     def get_edit_url(self):
         """
-        edit url
+        gets edit url
         """
-        return
+        return reverse("recipes:update", kwargs={"slug": self.slug})
+
+    def get_delete_url(self):
+        """
+        gets delete url
+        """
+        return reverse("recipes:delete", kwargs={"slug": self.slug})
 
 
 class Comment(models.Model):
