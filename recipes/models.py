@@ -5,6 +5,7 @@ Models
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
+from django.shortcuts import reverse
 from cloudinary.models import CloudinaryField
 
 
@@ -64,6 +65,12 @@ class Recipe(models.Model):
         Retun total amount of likes on a recipe
         """
         return self.likes.count()
+
+    def get_edit_url(self):
+        """
+        edit url
+        """
+        return
 
 
 class Comment(models.Model):

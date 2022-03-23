@@ -66,7 +66,7 @@ aria-current="page" id="active-green"
                 {% if "placeholder" in recipe.featured_image.url %}
                 {% load static %}
                 <img class="card-img-top recipe-image" src="{% static 'media/site_imgs/knife-fork.jpg' %}"
-                    alt="Student Rations Logo">
+                    alt="Knife and Fork">
                 {% else %}
                 <img class="card-img-top recipe-image" src="{{ recipe.featured_image.url }}" alt="{{ recipe.title }}">
                 {% endif %}
@@ -81,7 +81,7 @@ aria-current="page" id="active-green"
                     <li class="list-group-item"><i class="fa-solid fa-heart"></i> {{ recipe.amount_of_likes }}
                     </li>
                 </ul>
-                <div class="card-body">
+                <div class="card-footer">
                     <a href="{% url 'recipe_detail' recipe.slug  %}" class="btn" id="green-btn">Go to
                         Recipe</a>
                 </div>
