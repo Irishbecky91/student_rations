@@ -3,7 +3,7 @@ Views
 """
 from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.views import generic, View
-from django.views.generic.edit import UpdateView
+# from django.views.generic.edit import UpdateView
 from django.http import HttpResponseRedirect
 from .models import Recipe
 from .forms import CommentForm, RecipeForm

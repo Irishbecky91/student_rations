@@ -3,13 +3,25 @@ Models
 """
 from django.db import models
 from django.template.defaultfilters import slugify
+from django.utils.crypto import get_random_string
 from django.contrib.auth.models import User
-# from django.shortcuts import reverse
+from django.shortcuts import reverse
 from cloudinary.models import CloudinaryField
 
 
 # Create your models here.
 STATUS = ((0, "Draft"), (1, "Published"))
+
+
+def unique_slugify(instance, slug):
+    """
+    creates a unique slug
+    """
+    model = Recipe
+    unique_slug = slug
+    while model.objects.filter(slug=unique_slug).exists():
+        unique_slug = slug + get_random_string(length=4)
+    return unique_slug
 
 
 class Recipe(models.Model):
@@ -24,7 +36,7 @@ class Recipe(models.Model):
     )
     status = models.IntegerField(choices=STATUS, default=0)
     title = models.CharField(max_length=150)
-    slug = models.SlugField(blank=False, null=False, default='author')
+    slug = models.SlugField(blank=False, null=False, unique=True)
     description = models.TextField(blank=True)
     prep_time = models.IntegerField(default=0)
     cook_time = models.IntegerField(default=0)
@@ -55,7 +67,8 @@ class Recipe(models.Model):
         return str(self.title)
 
     def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
+        if not self.slug:
+            self.slug = unique_slugify(self, slugify(self.title))
         super().save(*args, **kwargs)
 
     def amount_of_likes(self):
@@ -63,6 +76,24 @@ class Recipe(models.Model):
         Return total amount of likes on a recipe
         """
         return self.likes.count()
+
+    def get_absolute_url(self):
+        """
+        gets absolute url
+        """
+        return reverse("recipe_detail", kwargs={"slug": self.slug})
+
+    def get_edit_url(self):
+        """
+        gets edit url
+        """
+        return reverse("edit_recipe", kwargs={"slug": self.slug})
+
+    def get_delete_url(self):
+        """
+        gets delete url
+        """
+        return reverse("delete_recipe", kwargs={"slug": self.slug})
 
 
 class Comment(models.Model):
