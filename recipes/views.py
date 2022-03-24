@@ -46,7 +46,8 @@ class RecipeList(generic.ListView):
     model = Recipe
     queryset = Recipe.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
-    paginate_by = 12
+    paginate_by = 8
+
 
 
 class RecipeDetail(View):
@@ -139,14 +140,9 @@ def delete_recipe(request, slug):
     """
     Recipe delete view
     """
-    recipe = get_object_or_404(Recipe, slug=slug)
-    recipe_form = RecipeForm(request.POST or None, instance=recipe)
-    context = {
-        "recipe_form": recipe_form,
-        "recipe": recipe
-    }
-    return render(request, "delete_recipe.html", context)
-
+    recipe = Recipe.objects.get(slug=slug)
+    recipe.delete()
+    return redirect('home')
 
 
 class RecipeLike(View):
