@@ -44,7 +44,7 @@
             
             <hr class="mx-auto mt-3 mb-3 text-light">
             <div class="col mt-2 mb-3">
-                {% if user.is_authenticated %}
+                {% if user.id == recipe.author.id %}
                 <a href="{% url 'edit_recipe' recipe.slug %}" class="edit"><button class="btn btn-signup btn-md" id="green-btn" value="{{ recipe.slug }}" type="button">Edit</button></a>
                 <a href="{% url 'delete_recipe' recipe.slug %}" class="delete"><button class="btn btn-signup btn-md mx-2" id="green-btn" value="{{ recipe.slug }}" type="button">Delete</button></a>
                 {% endif %}

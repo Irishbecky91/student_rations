@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load cloudinary %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block title %}
+<title>Delete Recipe</title>
+{% endblock %}
+
+
+<!-- Header Image -->
+{% block header %}
+<header>
+    {% load static %}
+    <img class="img-fluid header-image" src="{% static 'media/site_imgs/food-background.png' %}" alt="food background">
+</header>
+{% endblock %}

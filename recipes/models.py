@@ -78,6 +78,24 @@ class Recipe(models.Model):
         """
         return self.likes.count()
 
+    def allowed_to_edit(self, request, slug):
+        """
+        Allows only the author to edit recipe.
+        """
+        if self.author:
+            return True
+        else:
+            return False
+    
+    def allowed_to_delete(self, request, slug):
+        """
+        Allows only the author to delete recipe.
+        """
+        if self.author:
+            return True
+        else:
+            return False
+
 
 class Comment(models.Model):
     """
