@@ -30,7 +30,15 @@ main {
 
 
 /* Text Styling */
-.green-text, #active-green {
+h1, h2, h3, h4 {
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.green-text, #active-green, #social {
     color: #97BE11;
 }
 

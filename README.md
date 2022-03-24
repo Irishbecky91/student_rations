@@ -167,16 +167,19 @@ Favourites Page:
 ### Design
 
 #### Colour Scheme
-The developer chose to use a clean black and white style page, with flashes of green throughout to hint towards healthy greens. This colour scheme was chosen as it is quite modern and it allows the colours from the recipes to be presented clearly and appear more attractive.
-The black and white colouring hints at a blackboard, which symbolises the students this site is directed towards.
+The developer chose to use a clean black and white style page, with flashes of green throughout to hint towards healthy edible greens. This colour scheme was chosen as it is quite modern and it allows the colours from the recipes to be presented clearly and appear more attractive.
+
+The black and white colouring give a very clean and clear view of the site content. The dark background is easier on the eyes, which for students can become quite strained due to their studies.
 
 #### Typography
-The font chosen for the logo was Courier New Bold as it is clear and concise, without any frills. This font was chosen as a representation of the site, showing clear concise recipes without all the added articles discussing each ingredient.
+The font chosen for the logo was Courier New Bold as it is clear and concise, without any frills. This font was chosen as a representation of the site, showing clear concise recipes without all the added articles discussing each ingredient. This Logo was created by the developer using [GNU Image Manipulation Program (GIMP)](https://www.gimp.org/ 'GIMP Website')
 
-For the headings, the font Shadows Into Light from Google Fonts was chosen to simulate chalk on a blackboard. For the paragraph text the font Open Sans from Google Fonts was chosen as it is both clear and very popular.
+The fonts chosen for this site are Roboto, for the headings, and Open Sans, for all other text, as these are popular and clear fonts which work well with the design of the site. Both of there fonts were chosen from [Google Fonts](https://fonts.google.com/ 'Google Fonts Website')
+
+ Roboto from Google Fonts was chosen as it is a clean and concise font. For the paragraph text the font Open Sans from Google Fonts was chosen as it is a popular font that is also clean and concise.
 
 #### Imagery
-To match the colour scheme chosen, an image of some food and utensils on a dark background was chosen. This image whos a few basic ingredients and gives a less threatening appearance to students who may be nervous about trying new recipes. On each recipe page, an image of the finished meal is shown with the recipe to allow the user to visualise the end product.
+To match the colour scheme chosen, an image of some food and utensils on a dark background was chosen. This image has a few basic ingredients and gives a less threatening appearance to students who may be nervous about trying new recipes. On each recipe page, an image of the finished meal is shown with the recipe to allow the user to visualise the end product.
 
 [Back to top ⇧](#Student-Rations)
 

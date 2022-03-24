@@ -5,7 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap 5 -->
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap 5 link -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- CSS -->
@@ -15,9 +21,9 @@
     <script src="https://kit.fontawesome.com/9d283dbd3f.js" crossorigin="anonymous"></script>
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- Bootstrap 5 -->
+    <!-- Bootstrap 5 script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
     </script>
     <!-- include summernote css/js -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.3/summernote.css" rel="stylesheet">
@@ -55,18 +61,22 @@
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link {% block active_create_recipe %}{% endblock %}" {% block aria_create_recipe %}{% endblock %}
-                            href="{% url 'create_recipe' %}">Share a Recipe</a>
+                        <a class="nav-link {% block active_create_recipe %}{% endblock %}"
+                            {% block aria_create_recipe %}{% endblock %} href="{% url 'create_recipe' %}">Share a
+                            Recipe</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% block active_logout %}{% endblock %}" {% block aria_logout %}{% endblock %} href="{% url 'account_logout' %}">Sign Out</a>
+                        <a class="nav-link {% block active_logout %}{% endblock %}"
+                            {% block aria_logout %}{% endblock %} href="{% url 'account_logout' %}">Sign Out</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link {% block active_login %}{% endblock %}" {% block aria_login %}{% endblock %} href="{% url 'account_login' %}">Sign In</a>
+                        <a class="nav-link {% block active_login %}{% endblock %}" {% block aria_login %}{% endblock %}
+                            href="{% url 'account_login' %}">Sign In</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% block active_signup %}{% endblock %}" {% block aria_signup %}{% endblock %} href="{% url 'account_signup' %}">Sign Up</a>
+                        <a class="nav-link {% block active_signup %}{% endblock %}"
+                            {% block aria_signup %}{% endblock %} href="{% url 'account_signup' %}">Sign Up</a>
                     </li>
                     {% endif %}
                 </ul>
@@ -109,10 +119,12 @@
                     </p>
                     <p>
                         <a href="https://www.savvyspender.ie/post/the-best-student-discounts-in-ireland"
-                            class="text-white" style="text-decoration: none;" target="_blank"> Best Student Discounts</a>
+                            class="text-white" style="text-decoration: none;" target="_blank"> Best Student
+                            Discounts</a>
                     </p>
                     <p>
-                        <a href="https://www.lidl.ie/super-savers" class="text-white" style="text-decoration: none;" target="_blank">
+                        <a href="https://www.lidl.ie/super-savers" class="text-white" style="text-decoration: none;"
+                            target="_blank">
                             Lidl Supersavers</a>
                     </p>
 
@@ -122,18 +134,22 @@
                     <h5 class="text-uppercase mb-4 font-weight-bold green-text">Our links</h5>
                     {% if user.is_authenticated %}
                     <p>
-                        <a href="{% url 'account_logout' %}" class="text-white" style="text-decoration: none;">Sign Out</a>
+                        <a href="{% url 'account_logout' %}" class="text-white" style="text-decoration: none;">Sign
+                            Out</a>
                     </p>
                     {% else %}
                     <p>
-                        <a href="{% url 'account_login' %}" class="text-white" style="text-decoration: none;">Sign In</a>
+                        <a href="{% url 'account_login' %}" class="text-white" style="text-decoration: none;">Sign
+                            In</a>
                     </p>
                     <p>
-                        <a href="{% url 'account_signup' %}" class="text-white" style="text-decoration: none;">Sign Up</a>
+                        <a href="{% url 'account_signup' %}" class="text-white" style="text-decoration: none;">Sign
+                            Up</a>
                     </p>
                     {% endif %}
                     <p>
-                        <a href="{% url 'create_recipe' %}" class="text-white" style="text-decoration: none;">Share Recipes</a>
+                        <a href="{% url 'create_recipe' %}" class="text-white" style="text-decoration: none;">Share
+                            Recipes</a>
                     </p>
                     <p>
                         <a href="{% url 'about' %}" class="text-white" style="text-decoration: none;">About</a>
@@ -175,27 +191,27 @@
                             <li class="list-inline-item">
                                 <a href="https://www.facebook.com" class="btn-floating btn-sm text-white"
                                     style="font-size: 23px;" aria-label="Social Link - Facebook" target="_blank"><i
-                                        class="fab fa-facebook"></i></a>
+                                        class="fab fa-facebook" id="social"></i></a>
                             </li>
                             <li class="list-inline-item">
                                 <a href="https://www.twitter.com" class="btn-floating btn-sm text-white"
                                     style="font-size: 23px;" aria-label="Social Link - Twitter" target="_blank"><i
-                                        class="fab fa-twitter"></i></a>
+                                        class="fab fa-twitter" id="social"></i></a>
                             </li>
                             <li class="list-inline-item">
                                 <a href="https://www.instagram.com" class="btn-floating btn-sm text-white"
                                     style="font-size: 23px;" aria-label="Social Link - Instagram" target="_blank"><i
-                                        class="fab fa-instagram"></i></a>
+                                        class="fab fa-instagram" id="social"></i></a>
                             </li>
                             <li class="list-inline-item">
                                 <a href="https://www.linkedin.com" class="btn-floating btn-sm text-white"
                                     style="font-size: 23px;" aria-label="Social Link - LinkedIn" target="_blank"><i
-                                        class="fab fa-linkedin-in"></i></a>
+                                        class="fab fa-linkedin-in" id="social"></i></a>
                             </li>
                             <li class="list-inline-item">
                                 <a href="https://www.youtube.com" class="btn-floating btn-sm text-white"
                                     style="font-size: 23px;" aria-label="Social Link - YouTube" target="_blank"><i
-                                        class="fab fa-youtube"></i></a>
+                                        class="fab fa-youtube" id="social"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -210,4 +226,5 @@
     initSummernote();
 </script>
 {% endblock%}
+
 </html>
