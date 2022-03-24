@@ -117,21 +117,36 @@ def edit_recipe(request, slug):
     """
     Recipe update view
     """
-    recipe = get_object_or_404(Recipe, slug=slug, user=request.user)
+    recipe = get_object_or_404(Recipe, slug=slug)
     recipe_form = RecipeForm(request.POST or None, instance=recipe)
     context = {
         "recipe_form": recipe_form,
         "recipe": recipe
     }
-
     if request.method == "POST":
-        recipe_form = RecipeForm(request.POST, request.FILES)
+        recipe_form = RecipeForm(request.POST, request.FILES, instance=recipe)
         if recipe_form.is_valid():
-            recipe_form.save()
-            context['message'] = 'You saved this recipe.'
+            recipe = recipe_form.save(commit=False)
+            recipe.author = request.user
+            recipe.save()
+            return redirect('home')
     else:
-        recipe_form = RecipeForm()
+        recipe_form = RecipeForm(instance=recipe)
     return render(request, "edit_recipe.html", context)
+
+
+def delete_recipe(request, slug):
+    """
+    Recipe delete view
+    """
+    recipe = get_object_or_404(Recipe, slug=slug)
+    recipe_form = RecipeForm(request.POST or None, instance=recipe)
+    context = {
+        "recipe_form": recipe_form,
+        "recipe": recipe
+    }
+    return render(request, "delete_recipe.html", context)
+
 
 
 class RecipeLike(View):

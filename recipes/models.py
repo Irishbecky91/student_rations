@@ -1,6 +1,7 @@
 """
 Models
 """
+import string
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.utils.crypto import get_random_string
@@ -20,7 +21,7 @@ def unique_slugify(instance, slug):
     model = Recipe
     unique_slug = slug
     while model.objects.filter(slug=unique_slug).exists():
-        unique_slug = slug + get_random_string(length=4)
+        unique_slug = slug + "-" + get_random_string(length=4)
     return unique_slug
 
 
@@ -76,24 +77,6 @@ class Recipe(models.Model):
         Return total amount of likes on a recipe
         """
         return self.likes.count()
-
-    def get_absolute_url(self):
-        """
-        gets absolute url
-        """
-        return reverse("recipe_detail", kwargs={"slug": self.slug})
-
-    def get_edit_url(self):
-        """
-        gets edit url
-        """
-        return reverse("edit_recipe", kwargs={"slug": self.slug})
-
-    def get_delete_url(self):
-        """
-        gets delete url
-        """
-        return reverse("delete_recipe", kwargs={"slug": self.slug})
 
 
 class Comment(models.Model):

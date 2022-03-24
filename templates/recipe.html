@@ -37,16 +37,16 @@
                         {% endif %}
                     </form>
                     {% else %}
-                    <span class="text-light"><i class="far fa-heart"></i> {{ recipe.amount_of_likes }} </span>
+                    <span class="text-light"><i class="fas fa-heart"></i> {{ recipe.amount_of_likes }} </span>
                     {% endif %}
                 </strong>
             </div>
             
             <hr class="mx-auto mt-3 mb-3 text-light">
             <div class="col mt-2 mb-3">
-                {% if recipe.author.is_authenticated %}
-                <a href="#" class="edit"><button class="btn btn-signup btn-md" id="green-btn" value="{{ recipe.slug }}" type="button">Edit</button></a>
-                <a href="#" class="delete"><button class="btn btn-signup btn-md mx-2" id="green-btn" value="{{ recipe.slug }}" type="button">Delete</button></a>
+                {% if user.is_authenticated %}
+                <a href="{% url 'edit_recipe' recipe.slug %}" class="edit"><button class="btn btn-signup btn-md" id="green-btn" value="{{ recipe.slug }}" type="button">Edit</button></a>
+                <a href="{% url 'delete_recipe' recipe.slug %}" class="delete"><button class="btn btn-signup btn-md mx-2" id="green-btn" value="{{ recipe.slug }}" type="button">Delete</button></a>
                 {% endif %}
             </div>
             <h3 class="green-text">Ingredients</h3>
