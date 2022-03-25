@@ -186,27 +186,59 @@ To match the colour scheme chosen, an image of some food and utensils on a dark 
 ## Features
 
 ### Design Features
-Nav Feature Desciption:
-- Details of feature
+Each page of the website features a consistent responsive navigational system:
 
+- The **Header** contains a conventionally placed logo in the top left of the page (whereby by clicking this will redirect users back to the home page) and navigation bar in the center of the header. On smaller screens, the navigation bar condenses into a dropdown with navigation options.
+
+- There is a **Header Image** on most pages, depicting a selection of ingredients and utensils on a dark background. This image is used to keep the theme consistant and is only missing in the recipe pages where the focus is instead brought to an image of the recipe itself, or a placeholder if none is provided.
+
+- The **Footer** is divided into five sections, four columns and a bottom row. The first column contains a short blurb, telling the user about the site. The second contains useful links to utensil shopping, budgeting ideas and more. The third has navigation links to the Student Rations site. The fourth has a list of contact infomation. Finally the bottom row contains social links and copyright information. On smaller screens, this condenses into a single column, with each section moving underneath it's neighbour on the left.
 
 <dl>
-  <dt><a href="#" target="_blank" alt="Page">Page</a></dt>
-  <dd>description of page:
+  <dt><a href="https://student-rations.herokuapp.com/" target="_blank" alt="Home Page">Home Page</a></dt>
+  <dd>The Home Page is laid out with a nav section on top, an image below the width of the screen, the content area containing the recipe cards, followed by the footer. The features are as follows:
      <ul>
-          <li><strong>feature</strong> - description.
+          <li><strong>A Welcome Note or Login Request</strong> - On the home screen you will see, below the header image, either a request to login or register to the site, or a heading welcoming the user to the site, citing the user's username.
           </li>
-          <li><strong>feature</strong> - description.
+          <li><strong>Recipe Cards</strong> - The main content has recipe cards that are four cards across on large screens, two across on medium screens and one across small screens. This is paginated by eight so anything more than eight cards will be shown on the next page.
+          </li>
+          <li><strong>Next/Prev Page Link</strong> - If more than eight recipe's on the site, the remainder will be shown on the next page, with a max of eight cards on each of the following pages. To access these, there is a Next or Prev link that shows underneath the recipe cards.
           </li>
      </ul>
   </dd>
 
-  <dt><a href="#" target="_blank" alt="Page">Page</a></dt>
-  <dd>description of page:
+  <dt><a href="https://student-rations.herokuapp.com/about/" target="_blank" alt="About Page">Recipe Page</a></dt>
+  <dd>This page shows the details of each recipe. This page does not contain a header image but is instead deivded into two sections on top, followed by a single column section and commenting section underneath. The features are as follows:
      <ul>
-          <li><strong>feature</strong> - description.
+          <li><strong>Content</strong> - There is a short piece describing the origin of the site.
           </li>
-          <li><strong>feature</strong> - description.
+     </ul>
+  </dd>
+
+  <dt><a href="https://student-rations.herokuapp.com/creamy-courgette-lasagne/" target="_blank" alt="Recipe Page - Chicken Caesar Salad">Recipe Page</a></dt>
+  <dd>This page shows the details of each recipe. This page does not contain a header image but is instead deivded into two sections on top, followed by a single column section and commenting section underneath. The features are as follows:
+     <ul>
+          <li><strong>Featured Image</strong> - The featured image shows the image the user uploaded, or the placeholder image if no image was uploaded by the user.
+          </li>
+          <li><strong>Like/Unlike Button</strong> - If the user is logged in, the like/unlike button will appear green and will allow the user to like the recipe. If they have already liked the recipe, clicking the button will remove the like.
+          </li>
+          <li><strong>Edit/Delete Buttons</strong> - If the user is logged in and is the author of said recipe, clicking the edit button will bring the user to the edit page. The recipe details are populated into the form and the user is able to edit the information, upload a new image and save the information. Alternatively, clicking the delete button removes the recipe from the database and redirects the user back to the home page.
+          </li>
+          <li><strong>Comment Feature</strong> - If the user is logged in, the comment form is visible under the recipe on the right of the page. Entering a comment and submitting will then cause the form to disappear and a message will show advising the comment is awaiting approval. On approval, comments are displayed under the recipe on the left of the page, showing the users name and date and time of commenting.
+          </li>
+     </ul>
+  </dd>
+
+  <dt><a href="https://student-rations.herokuapp.com/edit-a-recipe/creamy-courgette-lasagne" target="_blank" alt="Edit Recipe Page - Chicken Caesar Salad">Recipe Page</a></dt>
+  <dd>This page shows the details of each recipe. This page does not contain a header image but is instead deivded into two sections on top, followed by a single column section and commenting section underneath. The features are as follows:
+     <ul>
+          <li><strong>Featured Image</strong> - The featured image shows the image the user uploaded, or the placeholder image if no image was uploaded by the user.
+          </li>
+          <li><strong>Like/Unlike Button</strong> - If the user is logged in, the like/unlike button will appear green and will allow the user to like the recipe. If they have already liked the recipe, clicking the button will remove the like.
+          </li>
+          <li><strong>Edit/Delete Buttons</strong> - If the user is logged in and is the author of said recipe, clicking the edit button will bring the user to the edit page. The recipe details are populated into the form and the user is able to edit the information, upload a new image and save the information. Alternatively, clicking the delete button removes the recipe from the database and redirects the user back to the home page.
+          </li>
+          <li><strong>Comment Feature</strong> - If the user is logged in, the comment form is visible under the recipe on the right of the page. Entering a comment and submitting will then cause the form to disappear and a message will show advising the comment is awaiting approval. On approval, comments are displayed under the recipe on the left of the page, showing the users name and date and time of commenting.
           </li>
      </ul>
   </dd>
