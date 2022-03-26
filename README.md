@@ -2,7 +2,7 @@
 
 ![Image name](file path)
 
-[View the live project here](depolyed link)
+[View the live project here](deployed link)
 
 ## Table of contents
 1. [Introduction](#Introduction)
@@ -127,7 +127,7 @@ With the user stories in mind, the developer created the below strategy table to
 ![Strategy Table](static/media/README/strategy-table.png 'Strategy Table')
 
 #### Scope
-A scope was define to identify what needed to be done to align features with the strategy previously defined. This was broken into two categories:
+A scope was defined to identify what needed to be done to align features with the strategy previously defined. This was broken into two categories:
 - **Content Requirements**
      - The user will be looking for:
         - a comprehensive list of recipes.
@@ -169,14 +169,14 @@ Favourites Page:
 #### Colour Scheme
 The developer chose to use a clean black and white style page, with flashes of green throughout to hint towards healthy edible greens. This colour scheme was chosen as it is quite modern and it allows the colours from the recipes to be presented clearly and appear more attractive.
 
-The black and white colouring give a very clean and clear view of the site content. The dark background is easier on the eyes, which for students can become quite strained due to their studies.
+The black and white colouring gives a very clean and clear view of the site content. The dark background is easier on the eyes, which for students can become quite strained due to their studies.
 
 #### Typography
 The font chosen for the logo was Courier New Bold as it is clear and concise, without any frills. This font was chosen as a representation of the site, showing clear concise recipes without all the added articles discussing each ingredient. This Logo was created by the developer using [GNU Image Manipulation Program (GIMP)](https://www.gimp.org/ 'GIMP Website')
 
-The fonts chosen for this site are Roboto, for the headings, and Open Sans, for all other text, as these are popular and clear fonts which work well with the design of the site. Both of there fonts were chosen from [Google Fonts](https://fonts.google.com/ 'Google Fonts Website')
+The fonts chosen for this site are Roboto, for the headings, and Open Sans, for all other text, as these are popular and clear fonts that work well with the design of the site. Both of their fonts were chosen from [Google Fonts](https://fonts.google.com/ 'Google Fonts Website')
 
- Roboto from Google Fonts was chosen as it is a clean and concise font. For the paragraph text the font Open Sans from Google Fonts was chosen as it is a popular font that is also clean and concise.
+ Roboto from Google Fonts was chosen as it is a clean and concise font. For the paragraph text, the font Open Sans from Google Fonts was chosen as it is a popular font that is also clean and concise.
 
 #### Imagery
 To match the colour scheme chosen, an image of some food and utensils on a dark background was chosen. This image has a few basic ingredients and gives a less threatening appearance to students who may be nervous about trying new recipes. On each recipe page, an image of the finished meal is shown with the recipe to allow the user to visualise the end product.
@@ -188,66 +188,105 @@ To match the colour scheme chosen, an image of some food and utensils on a dark 
 ### Design Features
 Each page of the website features a consistent responsive navigational system:
 
-- The **Header** contains a conventionally placed logo in the top left of the page (whereby by clicking this will redirect users back to the home page) and navigation bar in the center of the header. On smaller screens, the navigation bar condenses into a dropdown with navigation options.
+- The **Header** contains a conventionally placed logo in the top left of the page (whereby clicking this will redirect users back to the home page) and a navigation bar in the centre of the header. On smaller screens, the navigation bar condenses into a dropdown with navigation options.
 
-- There is a **Header Image** on most pages, depicting a selection of ingredients and utensils on a dark background. This image is used to keep the theme consistant and is only missing in the recipe pages where the focus is instead brought to an image of the recipe itself, or a placeholder if none is provided.
+- There is a **Header Image** on most pages, depicting a selection of ingredients and utensils on a dark background. This image is used to keep the theme consistent and is only missing in the recipe pages where the focus is instead brought to an image of the recipe itself, or a placeholder if none is provided.
 
-- The **Footer** is divided into five sections, four columns and a bottom row. The first column contains a short blurb, telling the user about the site. The second contains useful links to utensil shopping, budgeting ideas and more. The third has navigation links to the Student Rations site. The fourth has a list of contact infomation. Finally the bottom row contains social links and copyright information. On smaller screens, this condenses into a single column, with each section moving underneath it's neighbour on the left.
+- The **Footer** is divided into five sections, four columns and a bottom row. The first column contains a short blurb, telling the user about the site. The second contains useful links to utensil shopping, budgeting ideas and more. The third has navigation links to the Student Rations site. The fourth has a list of contact information. Finally, the bottom row contains social links and copyright information. On smaller screens, this condenses into a single column, with each section moving underneath its neighbour on the left.
 
 <dl>
   <dt><a href="https://student-rations.herokuapp.com/" target="_blank" alt="Home Page">Home Page</a></dt>
   <dd>The Home Page is laid out with a nav section on top, an image below the width of the screen, the content area containing the recipe cards, followed by the footer. The features are as follows:
      <ul>
-          <li><strong>A Welcome Note or Login Request</strong> - On the home screen you will see, below the header image, either a request to login or register to the site, or a heading welcoming the user to the site, citing the user's username.
+          <li><strong>A Welcome Note or Login Request</strong> - On the home screen you will see, below the header image, either a request to log in or register to the site or a heading welcoming the user to the site, citing the user's username.
           </li>
-          <li><strong>Recipe Cards</strong> - The main content has recipe cards that are four cards across on large screens, two across on medium screens and one across small screens. This is paginated by eight so anything more than eight cards will be shown on the next page.
+          <li><strong>Recipe Cards</strong> - The main content has recipe cards that are four cards across on large screens, two across on medium screens and one across on small screens. This is paginated by eight so anything more than eight cards will be shown on the next page.
           </li>
-          <li><strong>Next/Prev Page Link</strong> - If more than eight recipe's on the site, the remainder will be shown on the next page, with a max of eight cards on each of the following pages. To access these, there is a Next or Prev link that shows underneath the recipe cards.
+          <li><strong>Next/Prev Page Link</strong> - If more than eight recipes are available, the remainder will be shown on the next page, with a max of eight cards on each of the following pages. To access these, there is a Next or Prev link that shows underneath the recipe cards.
           </li>
      </ul>
   </dd>
 
-  <dt><a href="https://student-rations.herokuapp.com/about/" target="_blank" alt="About Page">Recipe Page</a></dt>
-  <dd>This page shows the details of each recipe. This page does not contain a header image but is instead deivded into two sections on top, followed by a single column section and commenting section underneath. The features are as follows:
+  <dt><a href="https://student-rations.herokuapp.com/about/" target="_blank" alt="About Page">About Page</a></dt>
+  <dd>The about page shows a brief overview of the developer and their story:
      <ul>
-          <li><strong>Content</strong> - There is a short piece describing the origin of the site.
+          <li><strong>Content</strong> - There is information about the developer and their story on this page.
           </li>
      </ul>
   </dd>
 
-  <dt><a href="https://student-rations.herokuapp.com/creamy-courgette-lasagne/" target="_blank" alt="Recipe Page - Chicken Caesar Salad">Recipe Page</a></dt>
-  <dd>This page shows the details of each recipe. This page does not contain a header image but is instead deivded into two sections on top, followed by a single column section and commenting section underneath. The features are as follows:
-     <ul>
-          <li><strong>Featured Image</strong> - The featured image shows the image the user uploaded, or the placeholder image if no image was uploaded by the user.
-          </li>
-          <li><strong>Like/Unlike Button</strong> - If the user is logged in, the like/unlike button will appear green and will allow the user to like the recipe. If they have already liked the recipe, clicking the button will remove the like.
-          </li>
-          <li><strong>Edit/Delete Buttons</strong> - If the user is logged in and is the author of said recipe, clicking the edit button will bring the user to the edit page. The recipe details are populated into the form and the user is able to edit the information, upload a new image and save the information. Alternatively, clicking the delete button removes the recipe from the database and redirects the user back to the home page.
-          </li>
-          <li><strong>Comment Feature</strong> - If the user is logged in, the comment form is visible under the recipe on the right of the page. Entering a comment and submitting will then cause the form to disappear and a message will show advising the comment is awaiting approval. On approval, comments are displayed under the recipe on the left of the page, showing the users name and date and time of commenting.
-          </li>
-     </ul>
-  </dd>
-
-  <dt><a href="https://student-rations.herokuapp.com/edit-a-recipe/creamy-courgette-lasagne" target="_blank" alt="Edit Recipe Page - Chicken Caesar Salad">Recipe Page</a></dt>
-  <dd>This page shows the details of each recipe. This page does not contain a header image but is instead deivded into two sections on top, followed by a single column section and commenting section underneath. The features are as follows:
+  <dt><a href="https://student-rations.herokuapp.com/creamy-courgette-lasagne/" target="_blank" alt="Recipe Page - Creamy courgette lasagne">Recipe Page</a></dt>
+  <dd>This page shows the details of each recipe. This page does not contain a header image but is instead divided into two sections on top, followed by a single column section and commenting section underneath. The features are as follows:
      <ul>
           <li><strong>Featured Image</strong> - The featured image shows the image the user uploaded, or the placeholder image if no image was uploaded by the user.
           </li>
           <li><strong>Like/Unlike Button</strong> - If the user is logged in, the like/unlike button will appear green and will allow the user to like the recipe. If they have already liked the recipe, clicking the button will remove the like.
           </li>
-          <li><strong>Edit/Delete Buttons</strong> - If the user is logged in and is the author of said recipe, clicking the edit button will bring the user to the edit page. The recipe details are populated into the form and the user is able to edit the information, upload a new image and save the information. Alternatively, clicking the delete button removes the recipe from the database and redirects the user back to the home page.
+          <li><strong>Edit/Delete Buttons</strong> - If the user is logged in and is the author of the said recipe, clicking the edit button will bring the user to the edit page. The recipe details are populated into the form and the user can edit the information, upload a new image and save the information. Alternatively, clicking the delete button removes the recipe from the database and redirects the user back to the home page.
           </li>
-          <li><strong>Comment Feature</strong> - If the user is logged in, the comment form is visible under the recipe on the right of the page. Entering a comment and submitting will then cause the form to disappear and a message will show advising the comment is awaiting approval. On approval, comments are displayed under the recipe on the left of the page, showing the users name and date and time of commenting.
+          <li><strong>Comment Feature</strong> - If the user is logged in, the comment form is visible under the recipe on the right of the page. Entering a comment and submitting will then cause the form to disappear and a message will show advising the comment is awaiting approval. On approval, comments are displayed under the recipe on the left of the page, showing the user's name and date and time of commenting.
+          </li>
+     </ul>
+  </dd>
+
+  <dt><a href="https://student-rations.herokuapp.com/edit-a-recipe/creamy-courgette-lasagne" target="_blank" alt="Edit Recipe Page - Creamy courgette lasagne">Edit Recipe Page</a></dt>
+  <dd>This page shows the form populated with the specific recipe's information which can be saved and edited:
+     <ul>
+          <li><strong>Edit Recipe Form</strong> - The form is prepopulated with all the recipe information. The user can edit this information, only if they are the author of the recipe. Saving this recipe redirects the user to the home page where they can then view the recipe list.
+          </li>
+     </ul>
+  </dd>
+
+  <dt><a href="https://student-rations.herokuapp.com/share-a-recipe/" target="_blank" alt="Share a Recipe Page">Share a Recipe Page</a></dt>
+  <dd>This page has a form that allows the user to add a recipe, as well as upload an image:
+     <ul>
+          <li><strong>Share a Recipe Form</strong> - An empty form is displayed, allowing the user to enter the recipe details, as well as upload an image of the recipe. If no image is uploaded, the placeholder image is saved instead. Saving this recipe redirects the user to the home page where they can then view the recipe list.
+          </li>
+     </ul>
+  </dd>
+
+  <dt><a href="https://student-rations.herokuapp.com/accounts/login/" target="_blank" alt="Sign In Page">Sign In Page</a></dt>
+  <dd>This page has a form allowing the user to enter their username and password to log in:
+     <ul>
+          <li><strong>Sign In Form</strong> - This form has two input fields, for the username and the password. A submit button at the end of the form login the user in, if the information was correct, and redirects the user to the home page.
+          </li>
+     </ul>
+  </dd>
+  
+  <dt><a href="https://student-rations.herokuapp.com/accounts/logout/" target="_blank" alt="Sign Out Page">Sign Out Page</a></dt>
+  <dd>The :
+     <ul>
+          <li><strong>Sign Out Button</strong> - This page asks the user if they are sure they want to log out. Clicking the Sign Out button will log the user out and redirect them to the home page.
+          </li>
+     </ul>
+  </dd>
+  
+  <dt><a href="https://student-rations.herokuapp.com/accounts/signup/" target="_blank" alt="Sign Up Page">Sign Up Page</a></dt>
+  <dd>This page has a form allowing the user to enter their username, email and password to register an account:
+     <ul>
+          <li><strong>Sign In Form</strong> - This form has four input fields, for the username, email address (optional), the password and repeat the same password. A submit button at the end of the form login the user in if the information was correct and has not been used by other users previously, and redirects the user to the home page.
           </li>
      </ul>
   </dd>
 </dl>
  
 ### Existing Features
-- **Feature** - feature description.
-- **Feature** - feature description.
-- **Feature** - feature description.
+- **Header Logo** - Appearing on every page for brand recognition. Clicking the logo will return the users to the home page, as expected.
+- **Header Navigation Bar** - Appearing on every page for a consistently easy and intuitive navigable system.
+- **Header Image** - Appearing on almost every page, the image gives a consistent theme and style throughout the site.
+- **Social Icons** - Appearing on every page, the icons are appropriate representations of the Social Media platforms, found in the footer.
+- **Recipe Cards** - Appearing on the home page, the recipe cards give a brief overview of the recipe, showing the image, description, servings, prep and cook time, and the number of likes on the recipe.
+- **Recipe Form** - Appearing on the share a recipe page and edit recipe page, the form allows the user to add or edit a recipe, including adding an image to display on the recipe page and recipe card.
+- **Comment Form** - Appearing on the recipe page, the form submits the user's comment to be approved by the admin.
+- **Comments Section** - Appearing on the recipe page, approved comments are displayed showing the author's username and the date and time of submission.
+- **Like/Unlike Button** - Appearing on the recipe page when the user is logged in, the button allows the user to like or unlike a recipe. If the user is not logged in, they will simply see the number of likes on the page.
+- **Home Page** - A home page that shows the user the site's available recipes, shown as recipe cards and paginated by eight. There is a next/prev button under the recipes allowing the user to explore all recipes. In addition, if the user is logged in, a welcome message appears on the home page with the user's username. Otherwise, a short message recommending the user logs in or registers an account is shown.
+- **About Page** - An About Page gives the user information about the developer and their story.
+- **Recipe Page** - A recipe page whose content changes with the recipe details of the chosen recipe. Includes features to like and comment as well as edit or delete.
+- **Add/Edit Recipe Page** - A page designed to allow the user to add a recipe if logged in, and edit a recipe if they are logged in as the recipe's author. 
+- **Sign In Page** - A page designed to allow the user to log in using previously created user details; a username and a password.
+- **Sign Up Page** - A page designed to allow the user to create a user profile using a username, optional email address and a password which needs to be repeated to ensure it is correct.
+- **Sign Out Page** - A page designed to confirm the user wishes to log out of their account. If the user clicks the signout button, they are then redirected to the home page.
 
 ### Features to Implement in the future
 - **Feature Name**
