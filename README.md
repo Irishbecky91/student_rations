@@ -1,8 +1,8 @@
 # Student Rations
 
-![Image name](file path)
+![Student Rations - Resposive](static/media/README/responsive.png)
 
-[View the live project here](deployed link)
+[View the live project here](https://student-rations.herokuapp.com/ "Link to deployed link - Student Rations")
 
 ## Table of contents
 1. [Introduction](#Introduction)
@@ -285,54 +285,121 @@ Each page of the website features a consistent responsive navigational system:
 - **Recipe Page** - A recipe page whose content changes with the recipe details of the chosen recipe. Includes features to like and comment as well as edit or delete.
 - **Add/Edit Recipe Page** - A page designed to allow the user to add a recipe if logged in, and edit a recipe if they are logged in as the recipe's author. 
 - **Sign In Page** - A page designed to allow the user to log in using previously created user details; a username and a password.
-- **Sign Up Page** - A page designed to allow the user to create a user profile using a username, optional email address and a password which needs to be repeated to ensure it is correct.
-- **Sign Out Page** - A page designed to confirm the user wishes to log out of their account. If the user clicks the signout button, they are then redirected to the home page.
+- **Sign Up Page** - A page designed to allow the user to create a user profile using a username, optional email address and a password that needs to be repeated to ensure it is correct.
+- **Sign Out Page** - A page designed to confirm the user wishes to log out of their account. If the user clicks the sign out button, they are then redirected to the home page.
 
 ### Features to Implement in the future
-- **Feature Name**
-     - **Feature** - description.
-     - **Reason for not featuring in this release** - reason.
+- **Favourites Page**
+     - **Feature** - This feature would have been used to display all the recipes a user would have liked so the user could find them easier.
+     - **Reason for not featuring in this release** - The reason for not releasing this feature was that the developer ran out of time to implement the feature before the project's due date. This will be developed further in the future after grading is complete.
+- **Sharing Images in Comments**
+     - **Feature** - This feature would have allowed users to upload images of their attempts at the recipes in the comments section next to their comment.
+     - **Reason for not featuring in this release** - Again, the developer ran out of time to implement this feature before the project's due date. This will also be developed further in the future after grading is complete.
+- **Saving Drafts to a Profile Page**
+     - **Feature** - This feature would have allowed users to create a draft of a recipe which would be saved on a profile page which would allow them to complete the draft at a later date and release the recipe onto the site.
+     - **Reason for not featuring in this release** - Once again, the developer ran out of time to implement this feature before the project's due date. This will also be developed further in the future after grading is complete.
  
 [Back to top ⇧](#Student-Rations)
 
 ## Issues and Bugs 
 Sample text about bugs
 
-**Bug** - bug description.
-	- ***Solution***: description
+**Bug** - The developer initially thought that since Summernote worked on the admin page, it would work on the main site also. The developer was relying on Summernote being available on the recipe form as it would allow the user to create ordered and unordered lists for steps and ingredients. 
+- ***Solution***: The developer inspected all summernote documentation, on both their site and GitHub page. After discussing the issue with tutor support, it was found that the summernote documentation was lacking in information, focussing mostly on admin implementation. Tutor support was able to provide information regarding settings to be implemented as well as add the correct JS script at the bottom of the required pages. With the recommended in place, the summernote feature was working on the create/edit recipe pages and was able to be styled by the developer.
 
-**Bug** - bug description.
-	- ***Solution***: description
+**Bug** - The developer had a bug appear which prevented the author's username from saving when the recipe form was submitted.
+- ***Solution***: The developer found that the incorrect field was being selected. This was rectified by correcting the code from "recipe.user = request.user" to "recipe_form.author = request.user". Once the correct field was selected, the author's name was saved when the form was submitted.
+
+**Bug** - The developer found that when submitting a recipe, it did not appear on the home screen as a recipe card.
+- ***Solution***: After looking at the admin page, it was found that submitted recipes were saved as drafts, which were then inaccessible to the user to mark as published. The developer added a line of code in views.py which changed the publish status of the recipes as published once saved. That code was "recipe_form.status = 1". 
+
+**Bug** - The developer found that the site was not deploying to Heroku after the early deployment was completed.
+- ***Solution***: It was found that the app name was referenced in the Procfile instead of the project name. Correcting this error from "web: gunicorn recipes.wsgi" to "web: gunicorn student_rations.wsgi" fixed this issue and allowed the developer to successfully deploy to Heroku.
+
+**Bug** - The developer found a bug that caused an error if two recipes were added with the same name. This was caused by the slugs, created at the time the recipe was submitted, which were identical meaning the site could not differentiate which recipe was to be opened.
+- ***Solution***: The developer created a function that checked if the slug was already created. If so, a series of four randomly generated characters would be added to the end of the slug, creating a unique slug for each recipe.
+
+**Bug** - The developer found that the Summernote feature, while still working on the main site, had stopped working in the admin panel. This caused the textareas to become hidden. This became an issue as the admin could no longer interact with the description, direction or ingredient fields on the recipes.
+- ***Solution***: The developer found that the recipe section in admin.py had been altered, causing it to reference "summernote = ('content',)" rather than "summernote_field = ('content',)". Correcting this brought the textareas back to the admin panel so the recipes could once again be edited as needed.
 
 [Back to top ⇧](#Student-Rations)
 
 ## Technologies Used
 ### Main Languages Used
-- [Technology](Wiki Link "description of link")
-- [Technology](Wiki Link "description of link")
+- [HTML5](https://en.wikipedia.org/wiki/HTML5 "Link to HTML Wiki")
+- [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets "Link to CSS Wiki")
 
 ### Additional Languages Used
-- [Technology](Wiki Link "description of link")
-     - Used to .
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript "Link to JavaScript Wiki")
+     - Used to implement the Summernote feature that allowed the user to add styling to the recipe in the form.
+- [Python](https://en.wikipedia.org/wiki/Python_(programming_language) "Link to Python Wiki")
+     - Used to implement Django functionality, including building models, forms and views for our app.
 
 ### Frameworks, Libraries & Programs Used
-- [Technology](Wiki Link "description of link")
-     - Used to .
+- [Django](https://www.djangoproject.com/ "Link to Django Project website")
+    - Django was used to build the models, forms and views of the app, and was the backbone of this project.
+- [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/ "Link to Bootstrap page")
+     - Bootstrap was used to implement the responsiveness of the site, using bootstrap classes.
+- [Cloudinary](https://cloudinary.com/ "Link to Cloudinary page")
+     - Cloudinary was used as free cloud storage for images uploaded to the site through the recipe forms.
+- [Summernote](https://summernote.org "Link to Summernote page")
+     - Summernote was used to allow users to add styling when adding a recipe to the site. This is particularly useful for using bullet points for ingredients or numbering the steps for the recipe.
+- [Google Fonts](https://fonts.google.com/ "Link to Google Fonts")
+    - Google fonts were used to import the fonts "Roboto" and "Open Sans" into the style.css file. These fonts were used throughout the project.
+- [Font Awesome](https://fontawesome.com/ "Link to FontAwesome")
+     - Font Awesome was used on all pages throughout the website to import icons (e.g. social media icons) for UX purposes.
+- [Git](https://git-scm.com/ "Link to Git homepage")
+     - Git was used for version control by utilizing the GitPod terminal to commit to Git and push to GitHub.
+- [GitHub](https://github.com/ "Link to GitHub")
+     - GitHub was used to store the project after pushing
+- [Am I Responsive?](http://ami.responsivedesign.is/# "Link to Am I Responsive Homepage")
+     - Am I Responsive was used to see responsive design throughout the process and to generate mockup imagery to be used.
 
 [Back to top ⇧](#Student-Rations)
 
 ## Testing
 
-Testing information can be found in a separate testing [file](TESTING.md "Link to testing file")
+Testing information can be found in a separate [testing file](TESTING.md "Link to testing file").
 
 ## Deployment
 
-This project was developed using .
+This project was developed using a [GitPod](https://gitpod.io/ "Link ot GitPod") workspace. The code was commited to [Git](https://git-scm.com/ "Link to Git") and pushed to [GitHub](https://github.com/ "Link to GitHub") using the terminal.
 
 ### Deploying on Heroku
 To deploy this page to Heroku from its GitHub repository, the following steps were taken:
 
-1. 
+1. Create the Heroku App:
+    - Select "Create new app" in Heroku.
+    - Choose a name for your app and select the location.
+
+2. Attach the Postgres database:
+    - In the Resources tab, under add-ons, type in Postgres and select the Heroku Postgres option.
+
+3. Prepare the environment and settings.py file:
+    - In the Settings tab, click on Reveal Config Vars and copy the url next to DATABASE_URL.
+    - In your GitPod workspace, create an env.py file in the main directory. 
+    - Add the DATABASE_URL value and your chosen SECRET_KEY value to the env.py file.
+    - Add the SECRET_KEY value to the Config Vars in Heroku.
+    - Update the settings.py file to import the env file and add the SECRETKEY and DATABASE_URL file paths.
+    - Update the Config Vars with the Cloudinary url, adding into the settings.py file also.
+    - In settings.py add the following sections:
+        - Cloudinary to the INSTALLED_APPS list
+        - STATICFILE_STORAGE
+        - STATICFILES_DIRS
+        - STATIC_ROOT
+        - MEDIA_URL
+        - DEFAULT_FILE_STORAGE
+        - TEMPLATES_DIR
+        - Update DIRS in TEMPLATES with TEMPLATES_DIR
+        - Update ALLOWED_HOSTS with ['app_name.heroku.com', 'localhost']
+
+4. Store Static and Media files in Cloudinary and Deploy to Heroku:
+    - Create three directories in the main directory; media, storage and templates.
+    - Create a file named "Procfile" in the main directory and add the following:
+        - web: gunicorn project-name.wsgi
+    - Go to Deploy tab on Heroku and connect to the GitHub, then to the required recpository.
+    Click on Delpoy Branch and wait for the build to load. When the build is complete, the app can be opened through Heroku.
+
 
 ### Forking the Repository
 By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps...
@@ -372,17 +439,18 @@ Further reading and troubleshooting on cloning a repository from GitHub [here](h
 ## Credits 
 
 ### Content
-- sample text.
+- Some recipes were taken from other recipe sites, generated by the site '[God Dammit What Do You Want?](http://www.dammitwhatdoyouwant.co.uk/ "Link to the site God Dammit What Do You Want?")'. The remaining content was created by the developer.
 
 ### Media
-- images sourced from .
-- Text sourced from .
+- The images have been sourced by users and also from the [Pixabay](https://pixabay.com/) by the developer.
+- The text was created by both users and the3 developer. The users have added recipes and comments. The developer has also added recipes from recipe websites sourced through the website '[God Dammit What Do You Want?](http://www.dammitwhatdoyouwant.co.uk/ "Link to the site God Dammit What Do You Want?")'. The remaining text content was generated by the developer.
 
 ### Code 
 Did the developer use outside references when building code?
 - [Stack Overflow](https://stackoverflow.com/ "Link to Stack Overflow page")
-- [W3Schools](https://www.w3schools.com/ "Link to W3Schools page")
 - [Bootstrap](https://getbootstrap.com/ "Link to BootStrap page")
+- [Django Docs](https://docs.djangoproject.com/en/3.2/ "Link to Django's Docs for Version 3.2")
+- [Summernote GitHub Docs](https://github.com/summernote/summernote, "Link to Summernote's GitHub page")
 - etc.
 
 
@@ -391,7 +459,8 @@ Did the developer use outside references when building code?
 ## Acknowledgements
 
 - I would like to thank my friends and family for their valued opinions and critic during the process of design and development.
-- I would also like to thank my mentor, Name, for his/her invaluable help and guidance throughout the process.
+- I would also like to thank my mentor, Chris Quinn, for their invaluable help and guidance throughout the process.
+- Finally, I would like to thank all the wonderful people in Student Support who helped me find solutions to issues in my code.
 
 [Back to top ⇧](#Student-Rations)
 
