@@ -55,7 +55,7 @@ body {
 
 
 /* Button Styling */
-#green-btn {
+.green-btn {
     background-color: #97BE11;
     color: black;
     font-weight: 600;

@@ -46,9 +46,9 @@ aria-current="page" id="active-green"
             {% else %}
             <h1 class="text-center padding green-text mb-5 mt-5">What's cooking good looking?</h1>
             <p class="text-light text-center mb-5">Welcome to Student Rations! To leave a comment or like a recipe, or
-                to share your own recipes, please <a class="link" href="{% url 'account_login' %}" id="active-green">log
+                to share your own recipes, please <a class="link green-text" href="{% url 'account_login' %}">log
                     in</a>. If have not created an account
-                yet, then <a class="link" href="{% url 'account_signup' %}" id="active-green">register your account</a>.
+                yet, then <a class="link green-text" href="{% url 'account_signup' %}">register your account</a>.
             </p>
             <hr class="mt-3 mb-5 text-light">
             {% endif %}
@@ -81,7 +81,7 @@ aria-current="page" id="active-green"
                     </li>
                 </ul>
                 <div class="card-footer">
-                    <a href="{% url 'recipe_detail' recipe.slug  %}" class="btn" id="green-btn">Go to
+                    <a href="{% url 'recipe_detail' recipe.slug  %}" class="btn green-btn">Go to
                         Recipe</a>
                 </div>
             </div>
@@ -99,13 +99,13 @@ aria-current="page" id="active-green"
             <ul class="pagination justify-content-center">
                 {% if page_obj.has_previous %}
                 <li>
-                    <a href="?page={{ page_obj.previous_page_number }}" class="page_link" id="active-green">&laquo;
+                    <a href="?page={{ page_obj.previous_page_number }}" class="page_link green-text">&laquo;
                         PREV</a>
                 </li>
                 {% endif %}
                 {% if page_obj.has_next %}
                 <li>
-                    <a href="?page={{ page_obj.next_page_number }}" class="page_link" id="active-green">NEXT &raquo;</a>
+                    <a href="?page={{ page_obj.next_page_number }}" class="page_link green-text">NEXT &raquo;</a>
                 </li>
                 {% endif %}
             </ul>
