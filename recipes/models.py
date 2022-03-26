@@ -68,6 +68,9 @@ class Recipe(models.Model):
         return str(self.title)
 
     def save(self, *args, **kwargs):
+        """
+        Saves form information
+        """
         if not self.slug:
             self.slug = unique_slugify(self, slugify(self.title))
         super().save(*args, **kwargs)
@@ -86,7 +89,7 @@ class Recipe(models.Model):
             return True
         else:
             return False
-    
+
     def allowed_to_delete(self, request, slug):
         """
         Allows only the author to delete recipe.

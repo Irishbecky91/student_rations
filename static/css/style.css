@@ -39,7 +39,7 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-.green-text, #active-green, #social {
+.green-text, #active-green, .social {
     color: #97BE11;
 }
 

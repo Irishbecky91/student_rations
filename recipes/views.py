@@ -3,7 +3,6 @@ Views
 """
 from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.views import generic, View
-# from django.views.generic.edit import UpdateView
 from django.http import HttpResponseRedirect
 from .models import Recipe
 from .forms import CommentForm, RecipeForm
@@ -47,7 +46,6 @@ class RecipeList(generic.ListView):
     queryset = Recipe.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
     paginate_by = 8
-
 
 
 class RecipeDetail(View):
