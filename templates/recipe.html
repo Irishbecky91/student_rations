@@ -22,7 +22,7 @@
         <div class="col-12 col-md-12 col-lg-6 col-xl-6 text-start text-light mx-auto">
             <h1 class="green-text">{{ recipe.title }}</h1>
 
-            <p><small>Created by: {{ recipe.author }} on {{ recipe.created_on }}</small></p>
+            <p><small>Created by: <span class="green-text">{{ recipe.author }}</span> on {{ recipe.created_on }}</small></p>
             <div class="col">
                 <strong>
                     {% if user.is_authenticated %}
