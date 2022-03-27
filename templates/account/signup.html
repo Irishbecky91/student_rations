@@ -1,13 +1,18 @@
 {% extends "base.html" %}
 
 {% load i18n %}
-
 {% block head_title %}{% trans "Signup" %}{% endblock %}
+
+
+{% block title %}
+<title>Sign Up!</title>
+{% endblock %}
 
 
 {% block active_signup %}
 active
 {% endblock %}
+
 
 {% block aria_signup %}
 aria-current="page" id="active-green"
