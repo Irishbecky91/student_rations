@@ -28,33 +28,33 @@ aria-current="page" id="active-green"
 
 {% block content %}
 
-<div class="container text-white">
-    <div class="row">
-        <div class="col mt-3 justify-content-center text-center">
+    <div class="container text-white">
+        <div class="row">
+            <div class="col mt-3 justify-content-center text-center">
 
-            <h3 class="green-text mb-3">{% trans "Sign In" %}</h3>
+                <h3 class="green-text mb-3">{% trans "Sign In" %}</h3>
 
 
-            <p class="mb-5">{% blocktrans %}Welcome back to Student Rations.
-                To create a recipe, leave a comment or like a post, please log in. 
-                If you have not created an account yet, then
-                <a class="link green-text" href="{{ signup_url }}">sign up</a>.{% endblocktrans %}</p>
+                <p class="mb-5">{% blocktrans %}Welcome back to Student Rations.
+                    To create a recipe, leave a comment or like a post, please log in. 
+                    If you have not created an account yet, then
+                    <a class="link green-text" href="{{ signup_url }}">sign up</a>.{% endblocktrans %}</p>
 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col mt-3 mb-5 justify-content-center text-center">
+
+                <form class="login" method="POST" action="{% url 'account_login' %}">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                    {% endif %}
+                    <button class="btn btn-warning right" type="submit">{% trans "Sign In" %}</button>
+                </form>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col mt-3 mb-5 justify-content-center text-center">
-
-            <form class="login" method="POST" action="{% url 'account_login' %}">
-                {% csrf_token %}
-                {{ form.as_p }}
-                {% if redirect_field_value %}
-                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                {% endif %}
-                <button class="btn btn-warning right" type="submit">{% trans "Sign In" %}</button>
-            </form>
-        </div>
-    </div>
-</div>
 
 {% endblock %}
