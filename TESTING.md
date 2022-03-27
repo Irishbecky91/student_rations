@@ -133,7 +133,20 @@ Manual testing was conducted on the following elements of the [Sign In Page](Lin
 - Users can register, log in and logout.
 
     ![Users can register, log in and logout](static/media/TESTING/signup-signout-signin.gif)
-     
+
+### Pages are Responsive
+- Manual testing was conducted on the following pages for responsiveness on large, medium and small screens
+
+    ![Responsive Home](static/media/TESTING/responsive-home.gif)
+
+    ![Responsive About](static/media/TESTING/responsive-about.gif)
+
+    ![Responsive Recipe](static/media/TESTING/responsive-recipe.gif)
+
+    ![Responsive Form](static/media/TESTING/responsive-form.gif)
+
+    ![Responsive Sign In, Sign Out and Sign Up](static/media/TESTING/responsive-signin-signout-signup.gif)
+
 [Back to top](#Student-Rations---Testing)
 
 ## Automated Testing
