@@ -161,6 +161,9 @@ Search Page:
 Recipe Page:
 ![Recipe Page Wireframe](static/media/README/recipe-page-wireframe.png 'Recipe Page - Wireframe')
 
+Recipe Page:
+![Create/Edit Recipe Page Wireframe](static/media/README/create-edit-recipe-page-wireframe.png 'Create/Edit Recipe Page - Wireframe')
+
 Favourites Page:
 ![Favourites Page Wireframe](static/media/README/favourites-page-wireframe.png 'Favourites Page - Wireframe')
 
