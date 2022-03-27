@@ -163,9 +163,10 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SUMMERNOTE_CONFIG = {
-    # Or, you can set it to `False` to use SummernoteInplaceWidget by default - no iframe mode
-    # In this case, you have to load Bootstrap/jQuery sources and dependencies manually.
-    # Use this when you're already using Bootstrap/jQuery based themes.
+    # Or, you can set it to `False` to use SummernoteInplaceWidget by default
+    # - no iframe mode. In this case, you have to load Bootstrap/jQuery sources
+    # and dependencies manually. Use this when you're already using
+    # Bootstrap/jQuery based themes.
     'iframe': False,
 
     # You can put custom Summernote settings
@@ -193,7 +194,7 @@ SUMMERNOTE_CONFIG = {
     },
 
     # Lazy initialization
-    # If you want to initialize summernote at the bottom of page, set this as True
-    # and call `initSummernote()` on your page.
+    # If you want to initialize summernote at the bottom of page, set this as
+    # True and call `initSummernote()` on your page.
     'lazy': True,
 }

@@ -322,7 +322,9 @@ Sample text about bugs
 **Bug** - The developer found that the Summernote feature, while still working on the main site, had stopped working in the admin panel. This caused the textareas to become hidden. This became an issue as the admin could no longer interact with the description, direction or ingredient fields on the recipes.
 - ***Solution***: The developer found that the recipe section in admin.py had been altered, causing it to reference "summernote = ('content',)" rather than "summernote_field = ('content',)". Correcting this brought the textareas back to the admin panel so the recipes could once again be edited as needed.
 
-**Issue**: The developer found while validating the site's html that the Summernote feature implemented in the forms threw up a large number of errors. Unfortunately this is not something the developer was able to rectify and as such was left in the code. It will be noted that these errors were not caused by the developer and as such should hopefully not count toward the final grade.
+**Issue** - The developer found while validating the site's html that the Summernote feature implemented in the forms threw up a large number of errors. Unfortunately this is not something the developer was able to rectify and as such was left in the code. It will be noted that these errors were not caused by the developer and as such should hopefully not count toward the final grade.
+
+**Issue** - The developer found errors when validating the python files. This was found in the settings.py file where certain urls went beyond the character limit on a single line. This error can be ignored as there is no way to reduce the url length to conform to the character limit per line.
 
 [Back to top ⇧](#Student-Rations)
 
